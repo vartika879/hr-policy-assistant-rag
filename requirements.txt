@@ -1,0 +1,11 @@
+langchain
+langchain-core
+langchain-community
+
+#llm provider 
+langchain-groq
+langchain-text-splitters
+faiss-cpu
+ipykernel
+streamlit
+python-dotenv
