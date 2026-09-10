@@ -1,3 +1,4 @@
 basicragenv
 
 .env
+Data\faiss_index
