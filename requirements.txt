@@ -9,3 +9,4 @@ faiss-cpu
 ipykernel
 streamlit
 python-dotenv
+langchain-cohere
