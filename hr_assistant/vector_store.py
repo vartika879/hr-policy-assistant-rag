@@ -28,7 +28,7 @@ def build_vector_store(chunks):
     
     vector_store = QdrantVectorStore.from_documents(
         documents=chunks,
-        embedding=embeddings_model,
+        embeddings=embeddings_model,
         url=config.QDRANT_URL,
         api_key= config.QDRANT_API_KEY,
         collection_name=config.QDRANT_COLLECTION_NAME
