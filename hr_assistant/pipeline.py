@@ -19,7 +19,7 @@ from hr_assistant.vector_store import(
 build_vector_store,
 get_retriever,
 load_vector_store,
-save_vector_store,
+
 vector_store_exixts
 
 )
@@ -30,25 +30,27 @@ from hr_assistant.logger import get_logger
 logger = get_logger(__name__)
 
 
-
+# data injestion
 def build_vector_store_for_document(file_path:str=config.DATA_FILE_PATH):
-    """Load + split + embed the document , resusing a saved index if we have one."""
+    """Load + split + embed the document , resusing the quadrant collection  if we have one."""
     if vector_store_exixts():
-        print("Found a saved vector store on disk ,loading it (fast ,no re-embedding )")
+        print("Found an existing qdrant cloud collection, loading it (fast ,no re-embedding )")
         logger.info("Qdrant Cloud collection already exists, reusing it")
         return load_vector_store()
 
-    print("No saved store found ,building one from scratch ...")
+    print("No vector  store found , i will start upending the data ...")
     logger.info("No Qdrant Cloud collection found, building one from scratch")
     documents= load_document(file_path)
     chunks=split_into_chunks(documents)
     print(f"loaded'{file_path} and split it into{len(chunks)} chunks")
 
     vector_store=build_vector_store(chunks)
-    save_vector_store(vector_store)
-    print("Vector store build and saved to disk for the next time")
+    
+    print("Vector store build and uploaded to qdrant cloud")
     return vector_store
 
+
+# data retrieval
 def build_hr_assistant(file_path:str=config.DATA_FILE_PATH):
     """Build the full RAG Agent ready to answer questions"""
     logger.info("Building HR assistant...")

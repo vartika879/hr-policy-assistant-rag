@@ -21,9 +21,13 @@ LANGSMITH_PROJECT = os.getenv("LANGSMITH_PROJECT")
 ## DEFINE THE PATH-- DATA / VECTOR STORE
 DATA_FILE_PATH=os.path.join("Data","hr_policy.txt")
 
-VECTOR_STORE_PATH=os.path.join("Data","faiss_index")
 
+# VECTOR
 
+QDRANT_URL= os.getenv("QDRANT_URL")
+QDRANT_API_KEY =os.getenv("QDRANT_API_KEY")
+
+QDRANT_COLLECTION_NAME = os.getenv("QDRANT_COLLECTION_NAME","HR_policy")
 
 ## MODELS
 
