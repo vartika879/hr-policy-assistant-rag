@@ -9,6 +9,10 @@ faiss-cpu
 ipykernel
 streamlit
 python-dotenv
+<<<<<<< HEAD
 langchain-cohere
 
 lark
+=======
+langchain_cohere
+>>>>>>> 0bf194e6debcda66b86e69a639e0be9afbc1de61
