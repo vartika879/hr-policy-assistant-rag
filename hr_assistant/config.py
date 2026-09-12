@@ -1,3 +1,5 @@
+"""All settings for the app live here, in one place."""
+
 import os 
 from dotenv import load_dotenv
 
@@ -8,7 +10,13 @@ load_dotenv()
 GROQ_API_KEY=os.getenv("GROQ_API_KEY")
 COHERE_API_KEY=os.getenv("COHERE_API_KEY")
 
+GUARD_MODEL_NAME = "openai/gpt-oss-safeguard-20b"
 
+#tracing
+LANGSMITH_TRACING = os.getenv("LANGSMITH_TRACING", "false")
+LANGSMITH_ENDPOINT = os.getenv("LANGSMITH_ENDPOINT")
+LANGSMITH_API_KEY = os.getenv("LANGSMITH_API_KEY")
+LANGSMITH_PROJECT = os.getenv("LANGSMITH_PROJECT")
 
 ## DEFINE THE PATH-- DATA / VECTOR STORE
 DATA_FILE_PATH=os.path.join("Data","hr_policy.txt")

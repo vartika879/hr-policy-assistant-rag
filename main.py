@@ -1,6 +1,13 @@
-from hr_assistant.pipeline import ask,build_hr_assistant
 
+"""Command-line demo of the HR Policy Assistant.
+
+Run with:  python main.py
+"""
+from hr_assistant.pipeline import ask,build_hr_assistant
+from hr_assistant.logger import get_logger
+logger = get_logger(__name__)
 def main():
+    logger.info("=== CLI run started ===")
     print(" Buiding the HR Assistant..")
 
     agent=build_hr_assistant()
@@ -19,6 +26,7 @@ def main():
         print("ANSWER:",answer)
         print("="*60)
         print()
+        logger.info("=== CLI run finished ===")
 
 if __name__ == "__main__":
   main()

@@ -1,0 +1,35 @@
+2026-09-11 15:28:55,359 | INFO | __main__ | === CLI run started ===
+2026-09-11 15:28:55,360 | INFO | hr_assistant.pipeline | Building HR assistant...
+2026-09-11 15:28:55,360 | INFO | hr_assistant.pipeline | Building HR assistant...
+2026-09-11 15:28:55,361 | INFO | hr_assistant.pipeline | Qdrant Cloud collection already exists, reusing it
+2026-09-11 15:28:55,361 | INFO | hr_assistant.embeddings | Initializing embeddings model 'embed-english-light-v3.0'
+2026-09-11 15:28:55,667 | INFO | faiss.loader | Loading faiss with AVX2 support.
+2026-09-11 15:28:55,668 | INFO | faiss.loader | Could not load library with AVX2 support due to:
+ModuleNotFoundError("No module named 'faiss.swigfaiss_avx2'")
+2026-09-11 15:28:55,707 | INFO | faiss.loader | Loading faiss.
+2026-09-11 15:28:55,747 | INFO | faiss.loader | Successfully loaded faiss.
+2026-09-11 15:28:55,763 | INFO | hr_assistant.llm | Initializing LLM 
+2026-09-11 15:28:55,819 | INFO | hr_assistant.agent | Creating HR agent with 1 tool(s)
+2026-09-11 15:28:55,830 | INFO | hr_assistant.agent | HR agent Ready
+2026-09-11 15:28:55,830 | INFO | hr_assistant.pipeline | HR assistant is ready to take questions
+2026-09-11 15:28:55,831 | INFO | hr_assistant.pipeline | User question: How many paid leaves days do i get ?
+2026-09-11 15:28:56,327 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-11 15:28:56,884 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-11 15:28:56,891 | INFO | hr_assistant.tools | search_hr_policy called with query: How many paid leaves days do i get?
+2026-09-11 15:28:57,458 | INFO | httpx | HTTP Request: POST https://api.cohere.com/v1/embed "HTTP/1.1 200 OK"
+2026-09-11 15:28:57,508 | INFO | hr_assistant.tools | Found 3 matching chunk(s)
+2026-09-11 15:28:58,099 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-11 15:28:58,104 | INFO | hr_assistant.pipeline | Final answer: You’re entitled to **20 days of paid annual leave** each calendar year.  
+In addition, you receive **10 paid sick days** per year (separate from the annual leave).
+2026-09-11 15:28:58,375 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-11 15:28:58,378 | INFO | __main__ | === CLI run finished ===
+2026-09-11 15:28:58,379 | INFO | hr_assistant.pipeline | User question: WHAt is the notice period during probation?
+2026-09-11 15:29:00,165 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-11 15:29:00,570 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-11 15:29:00,577 | INFO | hr_assistant.tools | search_hr_policy called with query: notice period during probation
+2026-09-11 15:29:01,296 | INFO | httpx | HTTP Request: POST https://api.cohere.com/v1/embed "HTTP/1.1 200 OK"
+2026-09-11 15:29:01,303 | INFO | hr_assistant.tools | Found 3 matching chunk(s)
+2026-09-11 15:29:01,516 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-11 15:29:01,520 | INFO | hr_assistant.pipeline | Final answer: During your probationary period, the notice period is **15 days**. If you decide to resign, you’ll need to give the company 15 days’ notice. If you have any other questions about the process, feel free to ask!
+2026-09-11 15:29:02,204 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-11 15:29:02,208 | INFO | __main__ | === CLI run finished ===

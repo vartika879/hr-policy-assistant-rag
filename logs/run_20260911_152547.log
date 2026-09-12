@@ -1,0 +1,15 @@
+2026-09-11 15:25:48,627 | INFO | __main__ | === CLI run started ===
+2026-09-11 15:25:48,627 | INFO | hr_assistant.pipeline | Building HR assistant...
+2026-09-11 15:25:48,627 | INFO | hr_assistant.pipeline | Building HR assistant...
+2026-09-11 15:25:48,628 | INFO | hr_assistant.pipeline | Qdrant Cloud collection already exists, reusing it
+2026-09-11 15:25:48,628 | INFO | hr_assistant.embeddings | Initializing embeddings model 'embed-english-light-v3.0'
+2026-09-11 15:25:49,270 | INFO | faiss.loader | Loading faiss with AVX2 support.
+2026-09-11 15:25:49,271 | INFO | faiss.loader | Could not load library with AVX2 support due to:
+ModuleNotFoundError("No module named 'faiss.swigfaiss_avx2'")
+2026-09-11 15:25:49,272 | INFO | faiss.loader | Loading faiss.
+2026-09-11 15:25:49,718 | INFO | faiss.loader | Successfully loaded faiss.
+2026-09-11 15:25:49,798 | INFO | hr_assistant.llm | Initializing LLM 
+2026-09-11 15:25:49,844 | INFO | hr_assistant.agent | Creating HR agent with 1 tool(s)
+2026-09-11 15:25:49,880 | INFO | hr_assistant.agent | HR agent Ready
+2026-09-11 15:25:49,880 | INFO | hr_assistant.pipeline | HR assistant is ready to take questions
+2026-09-11 15:25:49,881 | INFO | hr_assistant.pipeline | User question: How many paid leaves days do i get ?

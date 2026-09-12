@@ -1,0 +1,13 @@
+2026-09-11 12:28:15,464 | INFO | faiss.loader | Loading faiss with AVX2 support.
+2026-09-11 12:28:15,464 | INFO | faiss.loader | Could not load library with AVX2 support due to:
+ModuleNotFoundError("No module named 'faiss.swigfaiss_avx2'")
+2026-09-11 12:28:15,464 | INFO | faiss.loader | Loading faiss.
+2026-09-11 12:28:15,484 | INFO | faiss.loader | Successfully loaded faiss.
+2026-09-11 12:28:43,477 | INFO | __main__ | === Streamlit run: new question received ===
+2026-09-11 12:28:44,187 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-11 12:28:44,618 | INFO | httpx | HTTP Request: POST https://api.cohere.com/v1/embed "HTTP/1.1 200 OK"
+2026-09-11 12:28:45,222 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-11 12:29:07,813 | INFO | __main__ | === Streamlit run: new question received ===
+2026-09-11 12:29:08,384 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-11 12:29:08,831 | INFO | httpx | HTTP Request: POST https://api.cohere.com/v1/embed "HTTP/1.1 200 OK"
+2026-09-11 12:29:09,414 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"

@@ -1,15 +1,24 @@
+"""Step 4: store chunk embeddings in Qdrant Cloud so we can search them later."""
+
 import os 
 from langchain_community.vectorstores import FAISS
 
 from hr_assistant import config
 
 from hr_assistant.embeddings import get_embeddings_models
+from hr_assistant.logger import get_logger
+
+logger = get_logger(__name__)
 
 # biliding a vector store using Fiass
 
 def build_vector_store(chunks):
     """Embed every chunk and build a searchable FAISS index in memory"""
+    logger.info(
+        "Embedding %d chunk(s) and uploading to database collection '%s'...",
+        len(chunks),)
     embeddings_model=get_embeddings_models()
+    
     return FAISS.from_documents(chunks,embeddings_model)
 
 # save Vector Store

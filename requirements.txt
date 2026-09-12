@@ -10,3 +10,5 @@ ipykernel
 streamlit
 python-dotenv
 langchain-cohere
+
+lark
