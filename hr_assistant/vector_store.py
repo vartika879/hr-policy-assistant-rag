@@ -1,7 +1,7 @@
 """Step 4: store chunk embeddings in Qdrant Cloud so we can search them later."""
 
 import os 
-from langchain_community.vectorstores import FAISS
+
 
 from hr_assistant import config
 
@@ -22,11 +22,12 @@ def build_vector_store(chunks):
     logger.info(
         "Embedding %d chunk(s) and uploading to qdrant collection '%s'...",
         len(chunks),
-        config.QDRANT_COLLECTION_NAME)
+        config.QDRANT_COLLECTION_NAME,
+    )
     embeddings_model=get_embeddings_models()
     
     vector_store = QdrantVectorStore.from_documents(
-        chunks,
+        documents=chunks,
         embedding=embeddings_model,
         url=config.QDRANT_URL,
         api_key= config.QDRANT_API_KEY,
@@ -44,15 +45,16 @@ def save_vector_store(vector_store,path:str=config.VECTOR_STORE_PATH)->None:
 
 def load_vector_store():
     """ Connnect to Qdrant cloud collection that was already built before"""
-    logger.info("Connecting to the quadrant clloud")
+    logger.info("Connecting to the quadrant clloud",config.QDRANT_COLLECTION_NAME,)
     embeddings_models = get_embeddings_models()
 
-    return QdrantVectorStore.from_documents(
+    vector_store = QdrantVectorStore.from_existing_collection(
         embeddings=embeddings_model,
         url=config.QDRANT_URL,
         api_key= config.QDRANT_API_KEY,
         collection_name=config.QDRANT_COLLECTION_NAME
     )
+    return vector_store
 
 
 
@@ -61,7 +63,7 @@ def load_vector_store():
 
 
 
-def vector_store_exixts()->bool:
+def vector_store_exists()->bool:
     """
     Check if qdrant store already exists
     """
