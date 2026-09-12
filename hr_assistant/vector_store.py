@@ -28,7 +28,7 @@ def build_vector_store(chunks):
     
     vector_store = QdrantVectorStore.from_documents(
         documents=chunks,
-        embeddings=embeddings_model,
+        embedding=embeddings_model,
         url=config.QDRANT_URL,
         api_key= config.QDRANT_API_KEY,
         collection_name=config.QDRANT_COLLECTION_NAME
@@ -46,10 +46,10 @@ def save_vector_store(vector_store,path:str=config.VECTOR_STORE_PATH)->None:
 def load_vector_store():
     """ Connnect to Qdrant cloud collection that was already built before"""
     logger.info("Connecting to the quadrant clloud",config.QDRANT_COLLECTION_NAME,)
-    embeddings_models = get_embeddings_models()
+    embeddings_model = get_embeddings_models()
 
     vector_store = QdrantVectorStore.from_existing_collection(
-        embeddings=embeddings_model,
+        embedding=embeddings_model,
         url=config.QDRANT_URL,
         api_key= config.QDRANT_API_KEY,
         collection_name=config.QDRANT_COLLECTION_NAME
