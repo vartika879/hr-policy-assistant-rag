@@ -20,7 +20,7 @@ build_vector_store,
 get_retriever,
 load_vector_store,
 
-vector_store_exixts
+vector_store_exists
 
 )
 
@@ -33,7 +33,7 @@ logger = get_logger(__name__)
 # data injestion
 def build_vector_store_for_document(file_path:str=config.DATA_FILE_PATH):
     """Load + split + embed the document , resusing the quadrant collection  if we have one."""
-    if vector_store_exixts():
+    if vector_store_exists():
         print("Found an existing qdrant cloud collection, loading it (fast ,no re-embedding )")
         logger.info("Qdrant Cloud collection already exists, reusing it")
         return load_vector_store()
