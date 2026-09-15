@@ -1,0 +1,1804 @@
+2026-09-15 20:31:45,633 | INFO | hr_assistant.evaluation | Dataset 'hr-policy-qna' already exists, reusing it
+2026-09-15 20:31:46,030 | INFO | hr_assistant.pipeline | Building HR assistant...
+2026-09-15 20:31:46,030 | INFO | hr_assistant.pipeline | Building HR assistant...
+2026-09-15 20:31:46,552 | INFO | httpx | HTTP Request: GET https://303a03b6-1d8f-457d-af46-336869acd983.eu-west-2-0.aws.cloud.qdrant.io:6333/collections/HR_policy/exists "HTTP/1.1 200 OK"
+2026-09-15 20:31:46,554 | INFO | hr_assistant.pipeline | Qdrant Cloud collection already exists, reusing it
+2026-09-15 20:31:46,554 | INFO | hr_assistant.vector_store | Connecting to the quadrant clloud
+2026-09-15 20:31:46,560 | INFO | hr_assistant.embeddings | Initializing embeddings model 'embed-english-light-v3.0'
+2026-09-15 20:31:46,601 | INFO | httpx | HTTP Request: GET https://303a03b6-1d8f-457d-af46-336869acd983.eu-west-2-0.aws.cloud.qdrant.io:6333 "HTTP/1.1 200 OK"
+2026-09-15 20:31:47,148 | INFO | httpx | HTTP Request: GET https://303a03b6-1d8f-457d-af46-336869acd983.eu-west-2-0.aws.cloud.qdrant.io:6333/collections/HR_policy "HTTP/1.1 200 OK"
+2026-09-15 20:31:47,177 | INFO | httpx | HTTP Request: GET https://303a03b6-1d8f-457d-af46-336869acd983.eu-west-2-0.aws.cloud.qdrant.io:6333 "HTTP/1.1 200 OK"
+2026-09-15 20:31:47,568 | INFO | httpx | HTTP Request: POST https://api.cohere.com/v1/embed "HTTP/1.1 200 OK"
+2026-09-15 20:31:47,572 | INFO | hr_assistant.vector_store | Creating retriever with top_k=3
+2026-09-15 20:31:47,575 | INFO | hr_assistant.llm | Initializing LLM via a portkey 
+2026-09-15 20:31:47,575 | INFO | hr_assistant.gateway | Routing LLM calls through Portkey (primary=@hr-policy -> fallback=@hr-policy-back)
+2026-09-15 20:31:48,043 | INFO | hr_assistant.agent | Creating HR agent with 1 tool(s)
+2026-09-15 20:31:48,048 | INFO | hr_assistant.agent | HR agent Ready
+2026-09-15 20:31:48,048 | INFO | hr_assistant.pipeline | HR assistant is ready to take questions
+2026-09-15 20:31:48,048 | INFO | hr_assistant.vector_store | Connecting to the quadrant clloud
+2026-09-15 20:31:48,048 | INFO | hr_assistant.embeddings | Initializing embeddings model 'embed-english-light-v3.0'
+2026-09-15 20:31:48,696 | INFO | httpx | HTTP Request: GET https://303a03b6-1d8f-457d-af46-336869acd983.eu-west-2-0.aws.cloud.qdrant.io:6333/collections/HR_policy "HTTP/1.1 200 OK"
+2026-09-15 20:31:49,143 | INFO | httpx | HTTP Request: POST https://api.cohere.com/v1/embed "HTTP/1.1 200 OK"
+2026-09-15 20:31:49,147 | INFO | hr_assistant.vector_store | Creating retriever with top_k=3
+2026-09-15 20:31:49,149 | INFO | hr_assistant.evaluation | Running evaluation against dataset 'hr-policy-qna'
+2026-09-15 20:31:49,647 | INFO | httpx | HTTP Request: GET https://303a03b6-1d8f-457d-af46-336869acd983.eu-west-2-0.aws.cloud.qdrant.io:6333 "HTTP/1.1 200 OK"
+2026-09-15 20:31:51,088 | INFO | hr_assistant.pipeline | User question: How many days of unused annual leave can be carried forward?
+2026-09-15 20:31:51,431 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-15 20:31:51,787 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2026-09-15 20:31:51,795 | WARNING | langchain_core.callbacks.manager | Error in LangChainTracer.on_llm_error callback: TracerException('No indexed run ID 01a0a596-b0df-70a2-a2e3-85b707ea87be.')
+2026-09-15 20:31:51,827 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2026-09-15 20:31:51,830 | WARNING | langchain_core.callbacks.manager | Error in LangChainTracer.on_llm_error callback: TracerException('No indexed run ID 01a0a596-b234-7282-b43c-d046d29aef49.')
+2026-09-15 20:31:51,847 | ERROR | langsmith.evaluation._runner | Error running target function: Error code: 400 - {'status': 'failure', 'error': {'code': 'inline_provider_param_blocked', 'message': "Inline provider parameter header 'x-portkey-retry' is not allowed when block_inline_config is enabled. Configure it on a saved provider instead.", 'field': 'x-portkey-retry'}, 'message': "Inline provider parameter header 'x-portkey-retry' is not allowed when block_inline_config is enabled. Configure it on a saved provider instead."}
+Traceback (most recent call last):
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langchain_openai\chat_models\base.py", line 1904, in _generate
+    raw_response = self.client.with_raw_response.create(**payload)
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\openai\_legacy_response.py", line 369, in wrapped
+    return cast(LegacyAPIResponse[R], func(*args, **kwargs))
+                                      ~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\openai\_utils\_utils.py", line 298, in wrapper
+    return func(*args, **kwargs)
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\openai\resources\chat\completions\completions.py", line 1308, in create
+    return self._post(
+           ~~~~~~~~~~^
+        "/chat/completions",
+        ^^^^^^^^^^^^^^^^^^^^
+    ...<53 lines>...
+        stream_cls=Stream[ChatCompletionChunk],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\openai\_base_client.py", line 1368, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\openai\_base_client.py", line 1141, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.BadRequestError: Error code: 400 - {'status': 'failure', 'error': {'code': 'inline_provider_param_blocked', 'message': "Inline provider parameter header 'x-portkey-retry' is not allowed when block_inline_config is enabled. Configure it on a saved provider instead.", 'field': 'x-portkey-retry'}, 'message': "Inline provider parameter header 'x-portkey-retry' is not allowed when block_inline_config is enabled. Configure it on a saved provider instead."}
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langsmith\evaluation\_runner.py", line 1999, in _forward
+    fn(*args, langsmith_extra=langsmith_extra)
+    ~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langsmith\run_helpers.py", line 808, in wrapper
+    function_result = run_container["context"].run(
+        func, *args, **kwargs
+    )
+  File "c:\Rag_Project\hr_assistant\evaluation.py", line 123, in target
+    answer = ask(agent, inputs["question"])
+  File "c:\Rag_Project\hr_assistant\pipeline.py", line 79, in ask
+    response=agent.invoke({"messages":[{"role":"user","content":question}]})
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langgraph\pregel\main.py", line 3913, in invoke
+    for chunk in self.stream(
+                 ~~~~~~~~~~~^
+        input,
+        ^^^^^^
+    ...<11 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    ):
+    ^
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langgraph\pregel\main.py", line 2967, in stream
+    for _ in runner.tick(
+             ~~~~~~~~~~~^
+        [t for t in loop.tasks.values() if not t.writes],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+        schedule_task=loop.accept_push,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ):
+    ^
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langgraph\pregel\_runner.py", line 207, in tick
+    run_with_retry(
+    ~~~~~~~~~~~~~~^
+        t,
+        ^^
+    ...<10 lines>...
+        },
+        ^^
+    )
+    ^
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langgraph\pregel\_retry.py", line 617, in run_with_retry
+    return task.proc.invoke(task.input, config)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langgraph\_internal\_runnable.py", line 707, in invoke
+    input = context.run(step.invoke, input, config, **kwargs)
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langgraph\_internal\_runnable.py", line 447, in invoke
+    ret = self.func(*args, **kwargs)
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langchain\agents\factory.py", line 1483, in model_node
+    model_response = _execute_model_sync(request)
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langchain\agents\factory.py", line 1454, in _execute_model_sync
+    output = model_.invoke(messages)
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langchain_core\runnables\fallbacks.py", line 212, in invoke
+    raise first_error
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langchain_core\runnables\fallbacks.py", line 192, in invoke
+    output = context.run(
+        runnable.invoke,
+    ...<2 lines>...
+        **kwargs,
+    )
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langchain_core\runnables\base.py", line 6014, in invoke
+    return self.bound.invoke(
+           ~~~~~~~~~~~~~~~~~^
+        input,
+        ^^^^^^
+        self._merge_configs(config),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        **{**self.kwargs, **kwargs},
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 488, in invoke
+    self.generate_prompt(
+    ~~~~~~~~~~~~~~~~~~~~^
+        [self._convert_input(input)],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    ).generations[0][0],
+    ^
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 1877, in generate_prompt
+    return self.generate(prompt_messages, stop=stop, callbacks=callbacks, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 1684, in generate
+    self._generate_with_cache(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^
+        m,
+        ^^
+    ...<2 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    )
+    ^
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 2022, in _generate_with_cache
+    result = self._generate(
+        messages, stop=stop, run_manager=run_manager, **kwargs
+    )
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langchain_openai\chat_models\base.py", line 1907, in _generate
+    _handle_openai_bad_request(e)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langchain_openai\chat_models\base.py", line 644, in _handle_openai_bad_request
+    raise OpenAIInvalidRequestError(
+        message=e.message, response=e.response, body=e.body
+    ) from e
+langchain_openai.chat_models.base.OpenAIInvalidRequestError: Error code: 400 - {'status': 'failure', 'error': {'code': 'inline_provider_param_blocked', 'message': "Inline provider parameter header 'x-portkey-retry' is not allowed when block_inline_config is enabled. Configure it on a saved provider instead.", 'field': 'x-portkey-retry'}, 'message': "Inline provider parameter header 'x-portkey-retry' is not allowed when block_inline_config is enabled. Configure it on a saved provider instead."}
+During task with name 'model' and id '21aad228-ad8e-4f8a-411e-2e3875bed7b9'
+2026-09-15 20:31:52,888 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-15 20:31:52,906 | ERROR | langsmith.evaluation._runner | Error running evaluator <DynamicRunEvaluator groundedness_evaluator> on run 01a0a596-af57-7f73-b174-f0f7dcfac132: KeyError('answer')
+Traceback (most recent call last):
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langsmith\evaluation\_runner.py", line 1689, in _run_evaluators
+    evaluator_response = evaluator.evaluate_run(  # type: ignore[call-arg]
+        run=run,
+        example=example,
+        evaluator_run_id=evaluator_run_id,
+    )
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langsmith\evaluation\evaluator.py", line 370, in evaluate_run
+    result = self.func(
+        run,
+        example,
+        langsmith_extra={"run_id": evaluator_run_id, "metadata": metadata},
+    )
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langsmith\run_helpers.py", line 808, in wrapper
+    function_result = run_container["context"].run(
+        func, *args, **kwargs
+    )
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langsmith\evaluation\evaluator.py", line 791, in wrapper
+    return func(*args, **kwargs)
+  File "c:\Rag_Project\hr_assistant\evaluation.py", line 143, in groundedness_evaluator
+    return groundedness_judge(outputs={"answer": outputs["answer"]}, context=outputs["context"])
+                                                 ~~~~~~~^^^^^^^^^^
+KeyError: 'answer'
+2026-09-15 20:31:52,908 | INFO | hr_assistant.pipeline | User question: Within how many days must reimbursement claims be submitted?
+2026-09-15 20:31:53,144 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-15 20:31:53,178 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2026-09-15 20:31:53,182 | WARNING | langchain_core.callbacks.manager | Error in LangChainTracer.on_llm_error callback: TracerException('No indexed run ID 01a0a596-b77c-7992-8a3b-c23f0a40e772.')
+2026-09-15 20:31:53,210 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2026-09-15 20:31:53,213 | WARNING | langchain_core.callbacks.manager | Error in LangChainTracer.on_llm_error callback: TracerException('No indexed run ID 01a0a596-b79e-7f73-abc9-ca5b61c31f80.')
+2026-09-15 20:31:53,225 | ERROR | langsmith.evaluation._runner | Error running target function: Error code: 400 - {'status': 'failure', 'error': {'code': 'inline_provider_param_blocked', 'message': "Inline provider parameter header 'x-portkey-retry' is not allowed when block_inline_config is enabled. Configure it on a saved provider instead.", 'field': 'x-portkey-retry'}, 'message': "Inline provider parameter header 'x-portkey-retry' is not allowed when block_inline_config is enabled. Configure it on a saved provider instead."}
+Traceback (most recent call last):
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langchain_openai\chat_models\base.py", line 1904, in _generate
+    raw_response = self.client.with_raw_response.create(**payload)
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\openai\_legacy_response.py", line 369, in wrapped
+    return cast(LegacyAPIResponse[R], func(*args, **kwargs))
+                                      ~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\openai\_utils\_utils.py", line 298, in wrapper
+    return func(*args, **kwargs)
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\openai\resources\chat\completions\completions.py", line 1308, in create
+    return self._post(
+           ~~~~~~~~~~^
+        "/chat/completions",
+        ^^^^^^^^^^^^^^^^^^^^
+    ...<53 lines>...
+        stream_cls=Stream[ChatCompletionChunk],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\openai\_base_client.py", line 1368, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\openai\_base_client.py", line 1141, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.BadRequestError: Error code: 400 - {'status': 'failure', 'error': {'code': 'inline_provider_param_blocked', 'message': "Inline provider parameter header 'x-portkey-retry' is not allowed when block_inline_config is enabled. Configure it on a saved provider instead.", 'field': 'x-portkey-retry'}, 'message': "Inline provider parameter header 'x-portkey-retry' is not allowed when block_inline_config is enabled. Configure it on a saved provider instead."}
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langsmith\evaluation\_runner.py", line 1999, in _forward
+    fn(*args, langsmith_extra=langsmith_extra)
+    ~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langsmith\run_helpers.py", line 808, in wrapper
+    function_result = run_container["context"].run(
+        func, *args, **kwargs
+    )
+  File "c:\Rag_Project\hr_assistant\evaluation.py", line 123, in target
+    answer = ask(agent, inputs["question"])
+  File "c:\Rag_Project\hr_assistant\pipeline.py", line 79, in ask
+    response=agent.invoke({"messages":[{"role":"user","content":question}]})
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langgraph\pregel\main.py", line 3913, in invoke
+    for chunk in self.stream(
+                 ~~~~~~~~~~~^
+        input,
+        ^^^^^^
+    ...<11 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    ):
+    ^
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langgraph\pregel\main.py", line 2967, in stream
+    for _ in runner.tick(
+             ~~~~~~~~~~~^
+        [t for t in loop.tasks.values() if not t.writes],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+        schedule_task=loop.accept_push,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ):
+    ^
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langgraph\pregel\_runner.py", line 207, in tick
+    run_with_retry(
+    ~~~~~~~~~~~~~~^
+        t,
+        ^^
+    ...<10 lines>...
+        },
+        ^^
+    )
+    ^
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langgraph\pregel\_retry.py", line 617, in run_with_retry
+    return task.proc.invoke(task.input, config)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langgraph\_internal\_runnable.py", line 707, in invoke
+    input = context.run(step.invoke, input, config, **kwargs)
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langgraph\_internal\_runnable.py", line 447, in invoke
+    ret = self.func(*args, **kwargs)
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langchain\agents\factory.py", line 1483, in model_node
+    model_response = _execute_model_sync(request)
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langchain\agents\factory.py", line 1454, in _execute_model_sync
+    output = model_.invoke(messages)
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langchain_core\runnables\fallbacks.py", line 212, in invoke
+    raise first_error
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langchain_core\runnables\fallbacks.py", line 192, in invoke
+    output = context.run(
+        runnable.invoke,
+    ...<2 lines>...
+        **kwargs,
+    )
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langchain_core\runnables\base.py", line 6014, in invoke
+    return self.bound.invoke(
+           ~~~~~~~~~~~~~~~~~^
+        input,
+        ^^^^^^
+        self._merge_configs(config),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        **{**self.kwargs, **kwargs},
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 488, in invoke
+    self.generate_prompt(
+    ~~~~~~~~~~~~~~~~~~~~^
+        [self._convert_input(input)],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    ).generations[0][0],
+    ^
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 1877, in generate_prompt
+    return self.generate(prompt_messages, stop=stop, callbacks=callbacks, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 1684, in generate
+    self._generate_with_cache(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^
+        m,
+        ^^
+    ...<2 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    )
+    ^
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 2022, in _generate_with_cache
+    result = self._generate(
+        messages, stop=stop, run_manager=run_manager, **kwargs
+    )
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langchain_openai\chat_models\base.py", line 1907, in _generate
+    _handle_openai_bad_request(e)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langchain_openai\chat_models\base.py", line 644, in _handle_openai_bad_request
+    raise OpenAIInvalidRequestError(
+        message=e.message, response=e.response, body=e.body
+    ) from e
+langchain_openai.chat_models.base.OpenAIInvalidRequestError: Error code: 400 - {'status': 'failure', 'error': {'code': 'inline_provider_param_blocked', 'message': "Inline provider parameter header 'x-portkey-retry' is not allowed when block_inline_config is enabled. Configure it on a saved provider instead.", 'field': 'x-portkey-retry'}, 'message': "Inline provider parameter header 'x-portkey-retry' is not allowed when block_inline_config is enabled. Configure it on a saved provider instead."}
+During task with name 'model' and id 'ab49bdd5-a870-b7ad-6ea4-d4c3218f1e9b'
+2026-09-15 20:31:53,977 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-15 20:31:53,981 | ERROR | langsmith.evaluation._runner | Error running evaluator <DynamicRunEvaluator groundedness_evaluator> on run 01a0a596-b68c-7660-922e-2f2f32172e5c: KeyError('answer')
+Traceback (most recent call last):
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langsmith\evaluation\_runner.py", line 1689, in _run_evaluators
+    evaluator_response = evaluator.evaluate_run(  # type: ignore[call-arg]
+        run=run,
+        example=example,
+        evaluator_run_id=evaluator_run_id,
+    )
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langsmith\evaluation\evaluator.py", line 370, in evaluate_run
+    result = self.func(
+        run,
+        example,
+        langsmith_extra={"run_id": evaluator_run_id, "metadata": metadata},
+    )
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langsmith\run_helpers.py", line 808, in wrapper
+    function_result = run_container["context"].run(
+        func, *args, **kwargs
+    )
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langsmith\evaluation\evaluator.py", line 791, in wrapper
+    return func(*args, **kwargs)
+  File "c:\Rag_Project\hr_assistant\evaluation.py", line 143, in groundedness_evaluator
+    return groundedness_judge(outputs={"answer": outputs["answer"]}, context=outputs["context"])
+                                                 ~~~~~~~^^^^^^^^^^
+KeyError: 'answer'
+2026-09-15 20:31:53,982 | INFO | hr_assistant.pipeline | User question: How long is the probation period?
+2026-09-15 20:31:54,276 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-15 20:31:54,329 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2026-09-15 20:31:54,333 | WARNING | langchain_core.callbacks.manager | Error in LangChainTracer.on_llm_error callback: TracerException('No indexed run ID 01a0a596-bbe8-7bd0-84a7-6bc35099af21.')
+2026-09-15 20:31:54,367 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2026-09-15 20:31:54,371 | WARNING | langchain_core.callbacks.manager | Error in LangChainTracer.on_llm_error callback: TracerException('No indexed run ID 01a0a596-bc1e-7110-9520-9a9957e79698.')
+2026-09-15 20:31:54,384 | ERROR | langsmith.evaluation._runner | Error running target function: Error code: 400 - {'status': 'failure', 'error': {'code': 'inline_provider_param_blocked', 'message': "Inline provider parameter header 'x-portkey-retry' is not allowed when block_inline_config is enabled. Configure it on a saved provider instead.", 'field': 'x-portkey-retry'}, 'message': "Inline provider parameter header 'x-portkey-retry' is not allowed when block_inline_config is enabled. Configure it on a saved provider instead."}
+Traceback (most recent call last):
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langchain_openai\chat_models\base.py", line 1904, in _generate
+    raw_response = self.client.with_raw_response.create(**payload)
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\openai\_legacy_response.py", line 369, in wrapped
+    return cast(LegacyAPIResponse[R], func(*args, **kwargs))
+                                      ~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\openai\_utils\_utils.py", line 298, in wrapper
+    return func(*args, **kwargs)
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\openai\resources\chat\completions\completions.py", line 1308, in create
+    return self._post(
+           ~~~~~~~~~~^
+        "/chat/completions",
+        ^^^^^^^^^^^^^^^^^^^^
+    ...<53 lines>...
+        stream_cls=Stream[ChatCompletionChunk],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\openai\_base_client.py", line 1368, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\openai\_base_client.py", line 1141, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.BadRequestError: Error code: 400 - {'status': 'failure', 'error': {'code': 'inline_provider_param_blocked', 'message': "Inline provider parameter header 'x-portkey-retry' is not allowed when block_inline_config is enabled. Configure it on a saved provider instead.", 'field': 'x-portkey-retry'}, 'message': "Inline provider parameter header 'x-portkey-retry' is not allowed when block_inline_config is enabled. Configure it on a saved provider instead."}
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langsmith\evaluation\_runner.py", line 1999, in _forward
+    fn(*args, langsmith_extra=langsmith_extra)
+    ~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langsmith\run_helpers.py", line 808, in wrapper
+    function_result = run_container["context"].run(
+        func, *args, **kwargs
+    )
+  File "c:\Rag_Project\hr_assistant\evaluation.py", line 123, in target
+    answer = ask(agent, inputs["question"])
+  File "c:\Rag_Project\hr_assistant\pipeline.py", line 79, in ask
+    response=agent.invoke({"messages":[{"role":"user","content":question}]})
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langgraph\pregel\main.py", line 3913, in invoke
+    for chunk in self.stream(
+                 ~~~~~~~~~~~^
+        input,
+        ^^^^^^
+    ...<11 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    ):
+    ^
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langgraph\pregel\main.py", line 2967, in stream
+    for _ in runner.tick(
+             ~~~~~~~~~~~^
+        [t for t in loop.tasks.values() if not t.writes],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+        schedule_task=loop.accept_push,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ):
+    ^
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langgraph\pregel\_runner.py", line 207, in tick
+    run_with_retry(
+    ~~~~~~~~~~~~~~^
+        t,
+        ^^
+    ...<10 lines>...
+        },
+        ^^
+    )
+    ^
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langgraph\pregel\_retry.py", line 617, in run_with_retry
+    return task.proc.invoke(task.input, config)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langgraph\_internal\_runnable.py", line 707, in invoke
+    input = context.run(step.invoke, input, config, **kwargs)
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langgraph\_internal\_runnable.py", line 447, in invoke
+    ret = self.func(*args, **kwargs)
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langchain\agents\factory.py", line 1483, in model_node
+    model_response = _execute_model_sync(request)
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langchain\agents\factory.py", line 1454, in _execute_model_sync
+    output = model_.invoke(messages)
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langchain_core\runnables\fallbacks.py", line 212, in invoke
+    raise first_error
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langchain_core\runnables\fallbacks.py", line 192, in invoke
+    output = context.run(
+        runnable.invoke,
+    ...<2 lines>...
+        **kwargs,
+    )
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langchain_core\runnables\base.py", line 6014, in invoke
+    return self.bound.invoke(
+           ~~~~~~~~~~~~~~~~~^
+        input,
+        ^^^^^^
+        self._merge_configs(config),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        **{**self.kwargs, **kwargs},
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 488, in invoke
+    self.generate_prompt(
+    ~~~~~~~~~~~~~~~~~~~~^
+        [self._convert_input(input)],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    ).generations[0][0],
+    ^
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 1877, in generate_prompt
+    return self.generate(prompt_messages, stop=stop, callbacks=callbacks, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 1684, in generate
+    self._generate_with_cache(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^
+        m,
+        ^^
+    ...<2 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    )
+    ^
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 2022, in _generate_with_cache
+    result = self._generate(
+        messages, stop=stop, run_manager=run_manager, **kwargs
+    )
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langchain_openai\chat_models\base.py", line 1907, in _generate
+    _handle_openai_bad_request(e)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langchain_openai\chat_models\base.py", line 644, in _handle_openai_bad_request
+    raise OpenAIInvalidRequestError(
+        message=e.message, response=e.response, body=e.body
+    ) from e
+langchain_openai.chat_models.base.OpenAIInvalidRequestError: Error code: 400 - {'status': 'failure', 'error': {'code': 'inline_provider_param_blocked', 'message': "Inline provider parameter header 'x-portkey-retry' is not allowed when block_inline_config is enabled. Configure it on a saved provider instead.", 'field': 'x-portkey-retry'}, 'message': "Inline provider parameter header 'x-portkey-retry' is not allowed when block_inline_config is enabled. Configure it on a saved provider instead."}
+During task with name 'model' and id 'a27a1c26-05dd-1338-971b-8768987836bc'
+2026-09-15 20:31:54,981 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2026-09-15 20:31:54,993 | ERROR | langsmith.evaluation._runner | Error running evaluator <DynamicRunEvaluator _wrapped_evaluator> on run 01a0a596-babe-7651-90ac-f2592345043d: OpenAIInvalidRequestError('Error code: 400 - {\'error\': {\'message\': "groq error: Failed to generate JSON. Please adjust your prompt. See \'failed_generation\' for more details.", \'type\': \'invalid_request_error\', \'param\': None, \'code\': \'json_validate_failed\'}, \'provider\': \'groq\'}')
+Traceback (most recent call last):
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langchain_openai\chat_models\base.py", line 1867, in _generate
+    self.root_client.chat.completions.with_raw_response.parse(**payload)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\openai\_legacy_response.py", line 369, in wrapped
+    return cast(LegacyAPIResponse[R], func(*args, **kwargs))
+                                      ~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\openai\resources\chat\completions\completions.py", line 193, in parse
+    return self._post(
+           ~~~~~~~~~~^
+        "/chat/completions",
+        ^^^^^^^^^^^^^^^^^^^^
+    ...<53 lines>...
+        stream=False,
+        ^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\openai\_base_client.py", line 1368, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\openai\_base_client.py", line 1141, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.BadRequestError: Error code: 400 - {'error': {'message': "groq error: Failed to generate JSON. Please adjust your prompt. See 'failed_generation' for more details.", 'type': 'invalid_request_error', 'param': None, 'code': 'json_validate_failed'}, 'provider': 'groq'}
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langsmith\evaluation\_runner.py", line 1689, in _run_evaluators
+    evaluator_response = evaluator.evaluate_run(  # type: ignore[call-arg]
+        run=run,
+        example=example,
+        evaluator_run_id=evaluator_run_id,
+    )
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langsmith\evaluation\evaluator.py", line 370, in evaluate_run
+    result = self.func(
+        run,
+        example,
+        langsmith_extra={"run_id": evaluator_run_id, "metadata": metadata},
+    )
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langsmith\run_helpers.py", line 808, in wrapper
+    function_result = run_container["context"].run(
+        func, *args, **kwargs
+    )
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langsmith\evaluation\evaluator.py", line 791, in wrapper
+    return func(*args, **kwargs)
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\openevals\llm.py", line 600, in _wrapped_evaluator
+    res = _run_evaluator_untyped(
+        run_name=run_name,
+    ...<7 lines>...
+        **kwargs,
+    )
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\openevals\utils.py", line 293, in _run_evaluator_untyped
+    results = _run_scorer(**kwargs)
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langsmith\run_helpers.py", line 808, in wrapper
+    function_result = run_container["context"].run(
+        func, *args, **kwargs
+    )
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\openevals\utils.py", line 206, in _run_scorer
+    score = scorer(**kwargs)
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\openevals\llm.py", line 268, in get_score
+    response = judge_with_structured_output.invoke(normalized_messages)  # type: ignore
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langchain_core\runnables\base.py", line 3454, in invoke
+    input_ = context.run(step.invoke, input_, config, **kwargs)
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langchain_core\runnables\base.py", line 6014, in invoke
+    return self.bound.invoke(
+           ~~~~~~~~~~~~~~~~~^
+        input,
+        ^^^^^^
+        self._merge_configs(config),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        **{**self.kwargs, **kwargs},
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 488, in invoke
+    self.generate_prompt(
+    ~~~~~~~~~~~~~~~~~~~~^
+        [self._convert_input(input)],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    ).generations[0][0],
+    ^
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 1877, in generate_prompt
+    return self.generate(prompt_messages, stop=stop, callbacks=callbacks, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 1684, in generate
+    self._generate_with_cache(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^
+        m,
+        ^^
+    ...<2 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    )
+    ^
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 2022, in _generate_with_cache
+    result = self._generate(
+        messages, stop=stop, run_manager=run_manager, **kwargs
+    )
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langchain_openai\chat_models\base.py", line 1907, in _generate
+    _handle_openai_bad_request(e)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langchain_openai\chat_models\base.py", line 644, in _handle_openai_bad_request
+    raise OpenAIInvalidRequestError(
+        message=e.message, response=e.response, body=e.body
+    ) from e
+langchain_openai.chat_models.base.OpenAIInvalidRequestError: Error code: 400 - {'error': {'message': "groq error: Failed to generate JSON. Please adjust your prompt. See 'failed_generation' for more details.", 'type': 'invalid_request_error', 'param': None, 'code': 'json_validate_failed'}, 'provider': 'groq'}
+2026-09-15 20:31:54,999 | ERROR | langsmith.evaluation._runner | Error running evaluator <DynamicRunEvaluator groundedness_evaluator> on run 01a0a596-babe-7651-90ac-f2592345043d: KeyError('answer')
+Traceback (most recent call last):
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langsmith\evaluation\_runner.py", line 1689, in _run_evaluators
+    evaluator_response = evaluator.evaluate_run(  # type: ignore[call-arg]
+        run=run,
+        example=example,
+        evaluator_run_id=evaluator_run_id,
+    )
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langsmith\evaluation\evaluator.py", line 370, in evaluate_run
+    result = self.func(
+        run,
+        example,
+        langsmith_extra={"run_id": evaluator_run_id, "metadata": metadata},
+    )
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langsmith\run_helpers.py", line 808, in wrapper
+    function_result = run_container["context"].run(
+        func, *args, **kwargs
+    )
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langsmith\evaluation\evaluator.py", line 791, in wrapper
+    return func(*args, **kwargs)
+  File "c:\Rag_Project\hr_assistant\evaluation.py", line 143, in groundedness_evaluator
+    return groundedness_judge(outputs={"answer": outputs["answer"]}, context=outputs["context"])
+                                                 ~~~~~~~^^^^^^^^^^
+KeyError: 'answer'
+2026-09-15 20:31:55,000 | INFO | hr_assistant.pipeline | User question: How many paid sick days do I get per year?
+2026-09-15 20:31:55,268 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-15 20:31:55,326 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2026-09-15 20:31:55,330 | WARNING | langchain_core.callbacks.manager | Error in LangChainTracer.on_llm_error callback: TracerException('No indexed run ID 01a0a596-bfc8-7480-b7ae-63258d3df78a.')
+2026-09-15 20:31:55,357 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2026-09-15 20:31:55,360 | WARNING | langchain_core.callbacks.manager | Error in LangChainTracer.on_llm_error callback: TracerException('No indexed run ID 01a0a596-c002-7bc3-8dcc-b7354ada0bb2.')
+2026-09-15 20:31:55,373 | ERROR | langsmith.evaluation._runner | Error running target function: Error code: 400 - {'status': 'failure', 'error': {'code': 'inline_provider_param_blocked', 'message': "Inline provider parameter header 'x-portkey-retry' is not allowed when block_inline_config is enabled. Configure it on a saved provider instead.", 'field': 'x-portkey-retry'}, 'message': "Inline provider parameter header 'x-portkey-retry' is not allowed when block_inline_config is enabled. Configure it on a saved provider instead."}
+Traceback (most recent call last):
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langchain_openai\chat_models\base.py", line 1904, in _generate
+    raw_response = self.client.with_raw_response.create(**payload)
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\openai\_legacy_response.py", line 369, in wrapped
+    return cast(LegacyAPIResponse[R], func(*args, **kwargs))
+                                      ~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\openai\_utils\_utils.py", line 298, in wrapper
+    return func(*args, **kwargs)
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\openai\resources\chat\completions\completions.py", line 1308, in create
+    return self._post(
+           ~~~~~~~~~~^
+        "/chat/completions",
+        ^^^^^^^^^^^^^^^^^^^^
+    ...<53 lines>...
+        stream_cls=Stream[ChatCompletionChunk],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\openai\_base_client.py", line 1368, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\openai\_base_client.py", line 1141, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.BadRequestError: Error code: 400 - {'status': 'failure', 'error': {'code': 'inline_provider_param_blocked', 'message': "Inline provider parameter header 'x-portkey-retry' is not allowed when block_inline_config is enabled. Configure it on a saved provider instead.", 'field': 'x-portkey-retry'}, 'message': "Inline provider parameter header 'x-portkey-retry' is not allowed when block_inline_config is enabled. Configure it on a saved provider instead."}
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langsmith\evaluation\_runner.py", line 1999, in _forward
+    fn(*args, langsmith_extra=langsmith_extra)
+    ~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langsmith\run_helpers.py", line 808, in wrapper
+    function_result = run_container["context"].run(
+        func, *args, **kwargs
+    )
+  File "c:\Rag_Project\hr_assistant\evaluation.py", line 123, in target
+    answer = ask(agent, inputs["question"])
+  File "c:\Rag_Project\hr_assistant\pipeline.py", line 79, in ask
+    response=agent.invoke({"messages":[{"role":"user","content":question}]})
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langgraph\pregel\main.py", line 3913, in invoke
+    for chunk in self.stream(
+                 ~~~~~~~~~~~^
+        input,
+        ^^^^^^
+    ...<11 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    ):
+    ^
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langgraph\pregel\main.py", line 2967, in stream
+    for _ in runner.tick(
+             ~~~~~~~~~~~^
+        [t for t in loop.tasks.values() if not t.writes],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+        schedule_task=loop.accept_push,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ):
+    ^
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langgraph\pregel\_runner.py", line 207, in tick
+    run_with_retry(
+    ~~~~~~~~~~~~~~^
+        t,
+        ^^
+    ...<10 lines>...
+        },
+        ^^
+    )
+    ^
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langgraph\pregel\_retry.py", line 617, in run_with_retry
+    return task.proc.invoke(task.input, config)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langgraph\_internal\_runnable.py", line 707, in invoke
+    input = context.run(step.invoke, input, config, **kwargs)
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langgraph\_internal\_runnable.py", line 447, in invoke
+    ret = self.func(*args, **kwargs)
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langchain\agents\factory.py", line 1483, in model_node
+    model_response = _execute_model_sync(request)
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langchain\agents\factory.py", line 1454, in _execute_model_sync
+    output = model_.invoke(messages)
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langchain_core\runnables\fallbacks.py", line 212, in invoke
+    raise first_error
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langchain_core\runnables\fallbacks.py", line 192, in invoke
+    output = context.run(
+        runnable.invoke,
+    ...<2 lines>...
+        **kwargs,
+    )
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langchain_core\runnables\base.py", line 6014, in invoke
+    return self.bound.invoke(
+           ~~~~~~~~~~~~~~~~~^
+        input,
+        ^^^^^^
+        self._merge_configs(config),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        **{**self.kwargs, **kwargs},
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 488, in invoke
+    self.generate_prompt(
+    ~~~~~~~~~~~~~~~~~~~~^
+        [self._convert_input(input)],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    ).generations[0][0],
+    ^
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 1877, in generate_prompt
+    return self.generate(prompt_messages, stop=stop, callbacks=callbacks, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 1684, in generate
+    self._generate_with_cache(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^
+        m,
+        ^^
+    ...<2 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    )
+    ^
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 2022, in _generate_with_cache
+    result = self._generate(
+        messages, stop=stop, run_manager=run_manager, **kwargs
+    )
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langchain_openai\chat_models\base.py", line 1907, in _generate
+    _handle_openai_bad_request(e)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langchain_openai\chat_models\base.py", line 644, in _handle_openai_bad_request
+    raise OpenAIInvalidRequestError(
+        message=e.message, response=e.response, body=e.body
+    ) from e
+langchain_openai.chat_models.base.OpenAIInvalidRequestError: Error code: 400 - {'status': 'failure', 'error': {'code': 'inline_provider_param_blocked', 'message': "Inline provider parameter header 'x-portkey-retry' is not allowed when block_inline_config is enabled. Configure it on a saved provider instead.", 'field': 'x-portkey-retry'}, 'message': "Inline provider parameter header 'x-portkey-retry' is not allowed when block_inline_config is enabled. Configure it on a saved provider instead."}
+During task with name 'model' and id '49b04fc8-38a1-ae31-417d-264524e17f1d'
+2026-09-15 20:31:56,055 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-15 20:31:56,060 | ERROR | langsmith.evaluation._runner | Error running evaluator <DynamicRunEvaluator groundedness_evaluator> on run 01a0a596-beb8-7f30-8f15-c112f43d1d7f: KeyError('answer')
+Traceback (most recent call last):
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langsmith\evaluation\_runner.py", line 1689, in _run_evaluators
+    evaluator_response = evaluator.evaluate_run(  # type: ignore[call-arg]
+        run=run,
+        example=example,
+        evaluator_run_id=evaluator_run_id,
+    )
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langsmith\evaluation\evaluator.py", line 370, in evaluate_run
+    result = self.func(
+        run,
+        example,
+        langsmith_extra={"run_id": evaluator_run_id, "metadata": metadata},
+    )
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langsmith\run_helpers.py", line 808, in wrapper
+    function_result = run_container["context"].run(
+        func, *args, **kwargs
+    )
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langsmith\evaluation\evaluator.py", line 791, in wrapper
+    return func(*args, **kwargs)
+  File "c:\Rag_Project\hr_assistant\evaluation.py", line 143, in groundedness_evaluator
+    return groundedness_judge(outputs={"answer": outputs["answer"]}, context=outputs["context"])
+                                                 ~~~~~~~^^^^^^^^^^
+KeyError: 'answer'
+2026-09-15 20:31:56,062 | INFO | hr_assistant.pipeline | User question: How many public holidays does the company observe each year?
+2026-09-15 20:31:56,365 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-15 20:31:56,405 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2026-09-15 20:31:56,408 | WARNING | langchain_core.callbacks.manager | Error in LangChainTracer.on_llm_error callback: TracerException('No indexed run ID 01a0a596-c412-74f3-8e10-42cd80e3b507.')
+2026-09-15 20:31:56,447 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2026-09-15 20:31:56,450 | WARNING | langchain_core.callbacks.manager | Error in LangChainTracer.on_llm_error callback: TracerException('No indexed run ID 01a0a596-c439-71d2-9bd8-24721c03cd05.')
+2026-09-15 20:31:56,462 | ERROR | langsmith.evaluation._runner | Error running target function: Error code: 400 - {'status': 'failure', 'error': {'code': 'inline_provider_param_blocked', 'message': "Inline provider parameter header 'x-portkey-retry' is not allowed when block_inline_config is enabled. Configure it on a saved provider instead.", 'field': 'x-portkey-retry'}, 'message': "Inline provider parameter header 'x-portkey-retry' is not allowed when block_inline_config is enabled. Configure it on a saved provider instead."}
+Traceback (most recent call last):
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langchain_openai\chat_models\base.py", line 1904, in _generate
+    raw_response = self.client.with_raw_response.create(**payload)
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\openai\_legacy_response.py", line 369, in wrapped
+    return cast(LegacyAPIResponse[R], func(*args, **kwargs))
+                                      ~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\openai\_utils\_utils.py", line 298, in wrapper
+    return func(*args, **kwargs)
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\openai\resources\chat\completions\completions.py", line 1308, in create
+    return self._post(
+           ~~~~~~~~~~^
+        "/chat/completions",
+        ^^^^^^^^^^^^^^^^^^^^
+    ...<53 lines>...
+        stream_cls=Stream[ChatCompletionChunk],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\openai\_base_client.py", line 1368, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\openai\_base_client.py", line 1141, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.BadRequestError: Error code: 400 - {'status': 'failure', 'error': {'code': 'inline_provider_param_blocked', 'message': "Inline provider parameter header 'x-portkey-retry' is not allowed when block_inline_config is enabled. Configure it on a saved provider instead.", 'field': 'x-portkey-retry'}, 'message': "Inline provider parameter header 'x-portkey-retry' is not allowed when block_inline_config is enabled. Configure it on a saved provider instead."}
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langsmith\evaluation\_runner.py", line 1999, in _forward
+    fn(*args, langsmith_extra=langsmith_extra)
+    ~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langsmith\run_helpers.py", line 808, in wrapper
+    function_result = run_container["context"].run(
+        func, *args, **kwargs
+    )
+  File "c:\Rag_Project\hr_assistant\evaluation.py", line 123, in target
+    answer = ask(agent, inputs["question"])
+  File "c:\Rag_Project\hr_assistant\pipeline.py", line 79, in ask
+    response=agent.invoke({"messages":[{"role":"user","content":question}]})
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langgraph\pregel\main.py", line 3913, in invoke
+    for chunk in self.stream(
+                 ~~~~~~~~~~~^
+        input,
+        ^^^^^^
+    ...<11 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    ):
+    ^
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langgraph\pregel\main.py", line 2967, in stream
+    for _ in runner.tick(
+             ~~~~~~~~~~~^
+        [t for t in loop.tasks.values() if not t.writes],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+        schedule_task=loop.accept_push,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ):
+    ^
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langgraph\pregel\_runner.py", line 207, in tick
+    run_with_retry(
+    ~~~~~~~~~~~~~~^
+        t,
+        ^^
+    ...<10 lines>...
+        },
+        ^^
+    )
+    ^
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langgraph\pregel\_retry.py", line 617, in run_with_retry
+    return task.proc.invoke(task.input, config)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langgraph\_internal\_runnable.py", line 707, in invoke
+    input = context.run(step.invoke, input, config, **kwargs)
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langgraph\_internal\_runnable.py", line 447, in invoke
+    ret = self.func(*args, **kwargs)
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langchain\agents\factory.py", line 1483, in model_node
+    model_response = _execute_model_sync(request)
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langchain\agents\factory.py", line 1454, in _execute_model_sync
+    output = model_.invoke(messages)
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langchain_core\runnables\fallbacks.py", line 212, in invoke
+    raise first_error
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langchain_core\runnables\fallbacks.py", line 192, in invoke
+    output = context.run(
+        runnable.invoke,
+    ...<2 lines>...
+        **kwargs,
+    )
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langchain_core\runnables\base.py", line 6014, in invoke
+    return self.bound.invoke(
+           ~~~~~~~~~~~~~~~~~^
+        input,
+        ^^^^^^
+        self._merge_configs(config),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        **{**self.kwargs, **kwargs},
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 488, in invoke
+    self.generate_prompt(
+    ~~~~~~~~~~~~~~~~~~~~^
+        [self._convert_input(input)],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    ).generations[0][0],
+    ^
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 1877, in generate_prompt
+    return self.generate(prompt_messages, stop=stop, callbacks=callbacks, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 1684, in generate
+    self._generate_with_cache(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^
+        m,
+        ^^
+    ...<2 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    )
+    ^
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 2022, in _generate_with_cache
+    result = self._generate(
+        messages, stop=stop, run_manager=run_manager, **kwargs
+    )
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langchain_openai\chat_models\base.py", line 1907, in _generate
+    _handle_openai_bad_request(e)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langchain_openai\chat_models\base.py", line 644, in _handle_openai_bad_request
+    raise OpenAIInvalidRequestError(
+        message=e.message, response=e.response, body=e.body
+    ) from e
+langchain_openai.chat_models.base.OpenAIInvalidRequestError: Error code: 400 - {'status': 'failure', 'error': {'code': 'inline_provider_param_blocked', 'message': "Inline provider parameter header 'x-portkey-retry' is not allowed when block_inline_config is enabled. Configure it on a saved provider instead.", 'field': 'x-portkey-retry'}, 'message': "Inline provider parameter header 'x-portkey-retry' is not allowed when block_inline_config is enabled. Configure it on a saved provider instead."}
+During task with name 'model' and id 'b224b5c5-de5f-8862-d801-a5a2974ee8f4'
+2026-09-15 20:31:57,077 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-15 20:31:57,082 | ERROR | langsmith.evaluation._runner | Error running evaluator <DynamicRunEvaluator groundedness_evaluator> on run 01a0a596-c2dd-77f2-904c-7ba78afd604d: KeyError('answer')
+Traceback (most recent call last):
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langsmith\evaluation\_runner.py", line 1689, in _run_evaluators
+    evaluator_response = evaluator.evaluate_run(  # type: ignore[call-arg]
+        run=run,
+        example=example,
+        evaluator_run_id=evaluator_run_id,
+    )
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langsmith\evaluation\evaluator.py", line 370, in evaluate_run
+    result = self.func(
+        run,
+        example,
+        langsmith_extra={"run_id": evaluator_run_id, "metadata": metadata},
+    )
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langsmith\run_helpers.py", line 808, in wrapper
+    function_result = run_container["context"].run(
+        func, *args, **kwargs
+    )
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langsmith\evaluation\evaluator.py", line 791, in wrapper
+    return func(*args, **kwargs)
+  File "c:\Rag_Project\hr_assistant\evaluation.py", line 143, in groundedness_evaluator
+    return groundedness_judge(outputs={"answer": outputs["answer"]}, context=outputs["context"])
+                                                 ~~~~~~~^^^^^^^^^^
+KeyError: 'answer'
+2026-09-15 20:31:57,084 | INFO | hr_assistant.pipeline | User question: What is the notice period during probation?
+2026-09-15 20:31:57,355 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-15 20:31:57,418 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2026-09-15 20:31:57,422 | WARNING | langchain_core.callbacks.manager | Error in LangChainTracer.on_llm_error callback: TracerException('No indexed run ID 01a0a596-c7ef-7022-b0ef-04275ffd1cb8.')
+2026-09-15 20:31:57,454 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2026-09-15 20:31:57,457 | WARNING | langchain_core.callbacks.manager | Error in LangChainTracer.on_llm_error callback: TracerException('No indexed run ID 01a0a596-c82f-7102-9ccc-9b95d5c517f3.')
+2026-09-15 20:31:57,470 | ERROR | langsmith.evaluation._runner | Error running target function: Error code: 400 - {'status': 'failure', 'error': {'code': 'inline_provider_param_blocked', 'message': "Inline provider parameter header 'x-portkey-retry' is not allowed when block_inline_config is enabled. Configure it on a saved provider instead.", 'field': 'x-portkey-retry'}, 'message': "Inline provider parameter header 'x-portkey-retry' is not allowed when block_inline_config is enabled. Configure it on a saved provider instead."}
+Traceback (most recent call last):
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langchain_openai\chat_models\base.py", line 1904, in _generate
+    raw_response = self.client.with_raw_response.create(**payload)
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\openai\_legacy_response.py", line 369, in wrapped
+    return cast(LegacyAPIResponse[R], func(*args, **kwargs))
+                                      ~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\openai\_utils\_utils.py", line 298, in wrapper
+    return func(*args, **kwargs)
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\openai\resources\chat\completions\completions.py", line 1308, in create
+    return self._post(
+           ~~~~~~~~~~^
+        "/chat/completions",
+        ^^^^^^^^^^^^^^^^^^^^
+    ...<53 lines>...
+        stream_cls=Stream[ChatCompletionChunk],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\openai\_base_client.py", line 1368, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\openai\_base_client.py", line 1141, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.BadRequestError: Error code: 400 - {'status': 'failure', 'error': {'code': 'inline_provider_param_blocked', 'message': "Inline provider parameter header 'x-portkey-retry' is not allowed when block_inline_config is enabled. Configure it on a saved provider instead.", 'field': 'x-portkey-retry'}, 'message': "Inline provider parameter header 'x-portkey-retry' is not allowed when block_inline_config is enabled. Configure it on a saved provider instead."}
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langsmith\evaluation\_runner.py", line 1999, in _forward
+    fn(*args, langsmith_extra=langsmith_extra)
+    ~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langsmith\run_helpers.py", line 808, in wrapper
+    function_result = run_container["context"].run(
+        func, *args, **kwargs
+    )
+  File "c:\Rag_Project\hr_assistant\evaluation.py", line 123, in target
+    answer = ask(agent, inputs["question"])
+  File "c:\Rag_Project\hr_assistant\pipeline.py", line 79, in ask
+    response=agent.invoke({"messages":[{"role":"user","content":question}]})
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langgraph\pregel\main.py", line 3913, in invoke
+    for chunk in self.stream(
+                 ~~~~~~~~~~~^
+        input,
+        ^^^^^^
+    ...<11 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    ):
+    ^
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langgraph\pregel\main.py", line 2967, in stream
+    for _ in runner.tick(
+             ~~~~~~~~~~~^
+        [t for t in loop.tasks.values() if not t.writes],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+        schedule_task=loop.accept_push,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ):
+    ^
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langgraph\pregel\_runner.py", line 207, in tick
+    run_with_retry(
+    ~~~~~~~~~~~~~~^
+        t,
+        ^^
+    ...<10 lines>...
+        },
+        ^^
+    )
+    ^
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langgraph\pregel\_retry.py", line 617, in run_with_retry
+    return task.proc.invoke(task.input, config)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langgraph\_internal\_runnable.py", line 707, in invoke
+    input = context.run(step.invoke, input, config, **kwargs)
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langgraph\_internal\_runnable.py", line 447, in invoke
+    ret = self.func(*args, **kwargs)
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langchain\agents\factory.py", line 1483, in model_node
+    model_response = _execute_model_sync(request)
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langchain\agents\factory.py", line 1454, in _execute_model_sync
+    output = model_.invoke(messages)
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langchain_core\runnables\fallbacks.py", line 212, in invoke
+    raise first_error
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langchain_core\runnables\fallbacks.py", line 192, in invoke
+    output = context.run(
+        runnable.invoke,
+    ...<2 lines>...
+        **kwargs,
+    )
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langchain_core\runnables\base.py", line 6014, in invoke
+    return self.bound.invoke(
+           ~~~~~~~~~~~~~~~~~^
+        input,
+        ^^^^^^
+        self._merge_configs(config),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        **{**self.kwargs, **kwargs},
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 488, in invoke
+    self.generate_prompt(
+    ~~~~~~~~~~~~~~~~~~~~^
+        [self._convert_input(input)],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    ).generations[0][0],
+    ^
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 1877, in generate_prompt
+    return self.generate(prompt_messages, stop=stop, callbacks=callbacks, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 1684, in generate
+    self._generate_with_cache(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^
+        m,
+        ^^
+    ...<2 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    )
+    ^
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 2022, in _generate_with_cache
+    result = self._generate(
+        messages, stop=stop, run_manager=run_manager, **kwargs
+    )
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langchain_openai\chat_models\base.py", line 1907, in _generate
+    _handle_openai_bad_request(e)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langchain_openai\chat_models\base.py", line 644, in _handle_openai_bad_request
+    raise OpenAIInvalidRequestError(
+        message=e.message, response=e.response, body=e.body
+    ) from e
+langchain_openai.chat_models.base.OpenAIInvalidRequestError: Error code: 400 - {'status': 'failure', 'error': {'code': 'inline_provider_param_blocked', 'message': "Inline provider parameter header 'x-portkey-retry' is not allowed when block_inline_config is enabled. Configure it on a saved provider instead.", 'field': 'x-portkey-retry'}, 'message': "Inline provider parameter header 'x-portkey-retry' is not allowed when block_inline_config is enabled. Configure it on a saved provider instead."}
+During task with name 'model' and id '297f5465-a582-e781-90d2-fc6cd2835da9'
+2026-09-15 20:31:58,088 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-15 20:31:58,093 | ERROR | langsmith.evaluation._runner | Error running evaluator <DynamicRunEvaluator groundedness_evaluator> on run 01a0a596-c6db-7da2-947f-e22a559e4389: KeyError('answer')
+Traceback (most recent call last):
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langsmith\evaluation\_runner.py", line 1689, in _run_evaluators
+    evaluator_response = evaluator.evaluate_run(  # type: ignore[call-arg]
+        run=run,
+        example=example,
+        evaluator_run_id=evaluator_run_id,
+    )
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langsmith\evaluation\evaluator.py", line 370, in evaluate_run
+    result = self.func(
+        run,
+        example,
+        langsmith_extra={"run_id": evaluator_run_id, "metadata": metadata},
+    )
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langsmith\run_helpers.py", line 808, in wrapper
+    function_result = run_container["context"].run(
+        func, *args, **kwargs
+    )
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langsmith\evaluation\evaluator.py", line 791, in wrapper
+    return func(*args, **kwargs)
+  File "c:\Rag_Project\hr_assistant\evaluation.py", line 143, in groundedness_evaluator
+    return groundedness_judge(outputs={"answer": outputs["answer"]}, context=outputs["context"])
+                                                 ~~~~~~~^^^^^^^^^^
+KeyError: 'answer'
+2026-09-15 20:31:58,095 | INFO | hr_assistant.pipeline | User question: How many days of paid annual leave do I get per year?
+2026-09-15 20:31:58,334 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-15 20:31:58,366 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2026-09-15 20:31:58,370 | WARNING | langchain_core.callbacks.manager | Error in LangChainTracer.on_llm_error callback: TracerException('No indexed run ID 01a0a596-cbc2-71f3-8ee7-3457be075c4d.')
+2026-09-15 20:31:58,460 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2026-09-15 20:31:58,464 | WARNING | langchain_core.callbacks.manager | Error in LangChainTracer.on_llm_error callback: TracerException('No indexed run ID 01a0a596-cbe3-75b3-bc2c-0e6aeea0cddf.')
+2026-09-15 20:31:58,477 | ERROR | langsmith.evaluation._runner | Error running target function: Error code: 400 - {'status': 'failure', 'error': {'code': 'inline_provider_param_blocked', 'message': "Inline provider parameter header 'x-portkey-retry' is not allowed when block_inline_config is enabled. Configure it on a saved provider instead.", 'field': 'x-portkey-retry'}, 'message': "Inline provider parameter header 'x-portkey-retry' is not allowed when block_inline_config is enabled. Configure it on a saved provider instead."}
+Traceback (most recent call last):
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langchain_openai\chat_models\base.py", line 1904, in _generate
+    raw_response = self.client.with_raw_response.create(**payload)
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\openai\_legacy_response.py", line 369, in wrapped
+    return cast(LegacyAPIResponse[R], func(*args, **kwargs))
+                                      ~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\openai\_utils\_utils.py", line 298, in wrapper
+    return func(*args, **kwargs)
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\openai\resources\chat\completions\completions.py", line 1308, in create
+    return self._post(
+           ~~~~~~~~~~^
+        "/chat/completions",
+        ^^^^^^^^^^^^^^^^^^^^
+    ...<53 lines>...
+        stream_cls=Stream[ChatCompletionChunk],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\openai\_base_client.py", line 1368, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\openai\_base_client.py", line 1141, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.BadRequestError: Error code: 400 - {'status': 'failure', 'error': {'code': 'inline_provider_param_blocked', 'message': "Inline provider parameter header 'x-portkey-retry' is not allowed when block_inline_config is enabled. Configure it on a saved provider instead.", 'field': 'x-portkey-retry'}, 'message': "Inline provider parameter header 'x-portkey-retry' is not allowed when block_inline_config is enabled. Configure it on a saved provider instead."}
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langsmith\evaluation\_runner.py", line 1999, in _forward
+    fn(*args, langsmith_extra=langsmith_extra)
+    ~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langsmith\run_helpers.py", line 808, in wrapper
+    function_result = run_container["context"].run(
+        func, *args, **kwargs
+    )
+  File "c:\Rag_Project\hr_assistant\evaluation.py", line 123, in target
+    answer = ask(agent, inputs["question"])
+  File "c:\Rag_Project\hr_assistant\pipeline.py", line 79, in ask
+    response=agent.invoke({"messages":[{"role":"user","content":question}]})
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langgraph\pregel\main.py", line 3913, in invoke
+    for chunk in self.stream(
+                 ~~~~~~~~~~~^
+        input,
+        ^^^^^^
+    ...<11 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    ):
+    ^
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langgraph\pregel\main.py", line 2967, in stream
+    for _ in runner.tick(
+             ~~~~~~~~~~~^
+        [t for t in loop.tasks.values() if not t.writes],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+        schedule_task=loop.accept_push,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ):
+    ^
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langgraph\pregel\_runner.py", line 207, in tick
+    run_with_retry(
+    ~~~~~~~~~~~~~~^
+        t,
+        ^^
+    ...<10 lines>...
+        },
+        ^^
+    )
+    ^
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langgraph\pregel\_retry.py", line 617, in run_with_retry
+    return task.proc.invoke(task.input, config)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langgraph\_internal\_runnable.py", line 707, in invoke
+    input = context.run(step.invoke, input, config, **kwargs)
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langgraph\_internal\_runnable.py", line 447, in invoke
+    ret = self.func(*args, **kwargs)
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langchain\agents\factory.py", line 1483, in model_node
+    model_response = _execute_model_sync(request)
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langchain\agents\factory.py", line 1454, in _execute_model_sync
+    output = model_.invoke(messages)
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langchain_core\runnables\fallbacks.py", line 212, in invoke
+    raise first_error
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langchain_core\runnables\fallbacks.py", line 192, in invoke
+    output = context.run(
+        runnable.invoke,
+    ...<2 lines>...
+        **kwargs,
+    )
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langchain_core\runnables\base.py", line 6014, in invoke
+    return self.bound.invoke(
+           ~~~~~~~~~~~~~~~~~^
+        input,
+        ^^^^^^
+        self._merge_configs(config),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        **{**self.kwargs, **kwargs},
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 488, in invoke
+    self.generate_prompt(
+    ~~~~~~~~~~~~~~~~~~~~^
+        [self._convert_input(input)],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    ).generations[0][0],
+    ^
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 1877, in generate_prompt
+    return self.generate(prompt_messages, stop=stop, callbacks=callbacks, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 1684, in generate
+    self._generate_with_cache(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^
+        m,
+        ^^
+    ...<2 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    )
+    ^
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 2022, in _generate_with_cache
+    result = self._generate(
+        messages, stop=stop, run_manager=run_manager, **kwargs
+    )
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langchain_openai\chat_models\base.py", line 1907, in _generate
+    _handle_openai_bad_request(e)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langchain_openai\chat_models\base.py", line 644, in _handle_openai_bad_request
+    raise OpenAIInvalidRequestError(
+        message=e.message, response=e.response, body=e.body
+    ) from e
+langchain_openai.chat_models.base.OpenAIInvalidRequestError: Error code: 400 - {'status': 'failure', 'error': {'code': 'inline_provider_param_blocked', 'message': "Inline provider parameter header 'x-portkey-retry' is not allowed when block_inline_config is enabled. Configure it on a saved provider instead.", 'field': 'x-portkey-retry'}, 'message': "Inline provider parameter header 'x-portkey-retry' is not allowed when block_inline_config is enabled. Configure it on a saved provider instead."}
+During task with name 'model' and id '0b7408bc-5a01-347b-6770-0265821f43a1'
+2026-09-15 20:31:59,262 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-15 20:31:59,267 | ERROR | langsmith.evaluation._runner | Error running evaluator <DynamicRunEvaluator groundedness_evaluator> on run 01a0a596-cace-7983-8f79-ff76ac48e5a7: KeyError('answer')
+Traceback (most recent call last):
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langsmith\evaluation\_runner.py", line 1689, in _run_evaluators
+    evaluator_response = evaluator.evaluate_run(  # type: ignore[call-arg]
+        run=run,
+        example=example,
+        evaluator_run_id=evaluator_run_id,
+    )
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langsmith\evaluation\evaluator.py", line 370, in evaluate_run
+    result = self.func(
+        run,
+        example,
+        langsmith_extra={"run_id": evaluator_run_id, "metadata": metadata},
+    )
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langsmith\run_helpers.py", line 808, in wrapper
+    function_result = run_container["context"].run(
+        func, *args, **kwargs
+    )
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langsmith\evaluation\evaluator.py", line 791, in wrapper
+    return func(*args, **kwargs)
+  File "c:\Rag_Project\hr_assistant\evaluation.py", line 143, in groundedness_evaluator
+    return groundedness_judge(outputs={"answer": outputs["answer"]}, context=outputs["context"])
+                                                 ~~~~~~~^^^^^^^^^^
+KeyError: 'answer'
+2026-09-15 20:31:59,269 | INFO | hr_assistant.pipeline | User question: What is the standard notice period for resignation?
+2026-09-15 20:31:59,531 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-15 20:31:59,561 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2026-09-15 20:31:59,564 | WARNING | langchain_core.callbacks.manager | Error in LangChainTracer.on_llm_error callback: TracerException('No indexed run ID 01a0a596-d06f-7263-957c-fd8dad2b6234.')
+2026-09-15 20:31:59,604 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2026-09-15 20:31:59,607 | WARNING | langchain_core.callbacks.manager | Error in LangChainTracer.on_llm_error callback: TracerException('No indexed run ID 01a0a596-d08c-7782-9d3f-8403a039281d.')
+2026-09-15 20:31:59,621 | ERROR | langsmith.evaluation._runner | Error running target function: Error code: 400 - {'status': 'failure', 'error': {'code': 'inline_provider_param_blocked', 'message': "Inline provider parameter header 'x-portkey-retry' is not allowed when block_inline_config is enabled. Configure it on a saved provider instead.", 'field': 'x-portkey-retry'}, 'message': "Inline provider parameter header 'x-portkey-retry' is not allowed when block_inline_config is enabled. Configure it on a saved provider instead."}
+Traceback (most recent call last):
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langchain_openai\chat_models\base.py", line 1904, in _generate
+    raw_response = self.client.with_raw_response.create(**payload)
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\openai\_legacy_response.py", line 369, in wrapped
+    return cast(LegacyAPIResponse[R], func(*args, **kwargs))
+                                      ~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\openai\_utils\_utils.py", line 298, in wrapper
+    return func(*args, **kwargs)
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\openai\resources\chat\completions\completions.py", line 1308, in create
+    return self._post(
+           ~~~~~~~~~~^
+        "/chat/completions",
+        ^^^^^^^^^^^^^^^^^^^^
+    ...<53 lines>...
+        stream_cls=Stream[ChatCompletionChunk],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\openai\_base_client.py", line 1368, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\openai\_base_client.py", line 1141, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.BadRequestError: Error code: 400 - {'status': 'failure', 'error': {'code': 'inline_provider_param_blocked', 'message': "Inline provider parameter header 'x-portkey-retry' is not allowed when block_inline_config is enabled. Configure it on a saved provider instead.", 'field': 'x-portkey-retry'}, 'message': "Inline provider parameter header 'x-portkey-retry' is not allowed when block_inline_config is enabled. Configure it on a saved provider instead."}
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langsmith\evaluation\_runner.py", line 1999, in _forward
+    fn(*args, langsmith_extra=langsmith_extra)
+    ~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langsmith\run_helpers.py", line 808, in wrapper
+    function_result = run_container["context"].run(
+        func, *args, **kwargs
+    )
+  File "c:\Rag_Project\hr_assistant\evaluation.py", line 123, in target
+    answer = ask(agent, inputs["question"])
+  File "c:\Rag_Project\hr_assistant\pipeline.py", line 79, in ask
+    response=agent.invoke({"messages":[{"role":"user","content":question}]})
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langgraph\pregel\main.py", line 3913, in invoke
+    for chunk in self.stream(
+                 ~~~~~~~~~~~^
+        input,
+        ^^^^^^
+    ...<11 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    ):
+    ^
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langgraph\pregel\main.py", line 2967, in stream
+    for _ in runner.tick(
+             ~~~~~~~~~~~^
+        [t for t in loop.tasks.values() if not t.writes],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+        schedule_task=loop.accept_push,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ):
+    ^
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langgraph\pregel\_runner.py", line 207, in tick
+    run_with_retry(
+    ~~~~~~~~~~~~~~^
+        t,
+        ^^
+    ...<10 lines>...
+        },
+        ^^
+    )
+    ^
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langgraph\pregel\_retry.py", line 617, in run_with_retry
+    return task.proc.invoke(task.input, config)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langgraph\_internal\_runnable.py", line 707, in invoke
+    input = context.run(step.invoke, input, config, **kwargs)
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langgraph\_internal\_runnable.py", line 447, in invoke
+    ret = self.func(*args, **kwargs)
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langchain\agents\factory.py", line 1483, in model_node
+    model_response = _execute_model_sync(request)
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langchain\agents\factory.py", line 1454, in _execute_model_sync
+    output = model_.invoke(messages)
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langchain_core\runnables\fallbacks.py", line 212, in invoke
+    raise first_error
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langchain_core\runnables\fallbacks.py", line 192, in invoke
+    output = context.run(
+        runnable.invoke,
+    ...<2 lines>...
+        **kwargs,
+    )
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langchain_core\runnables\base.py", line 6014, in invoke
+    return self.bound.invoke(
+           ~~~~~~~~~~~~~~~~~^
+        input,
+        ^^^^^^
+        self._merge_configs(config),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        **{**self.kwargs, **kwargs},
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 488, in invoke
+    self.generate_prompt(
+    ~~~~~~~~~~~~~~~~~~~~^
+        [self._convert_input(input)],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    ).generations[0][0],
+    ^
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 1877, in generate_prompt
+    return self.generate(prompt_messages, stop=stop, callbacks=callbacks, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 1684, in generate
+    self._generate_with_cache(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^
+        m,
+        ^^
+    ...<2 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    )
+    ^
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 2022, in _generate_with_cache
+    result = self._generate(
+        messages, stop=stop, run_manager=run_manager, **kwargs
+    )
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langchain_openai\chat_models\base.py", line 1907, in _generate
+    _handle_openai_bad_request(e)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langchain_openai\chat_models\base.py", line 644, in _handle_openai_bad_request
+    raise OpenAIInvalidRequestError(
+        message=e.message, response=e.response, body=e.body
+    ) from e
+langchain_openai.chat_models.base.OpenAIInvalidRequestError: Error code: 400 - {'status': 'failure', 'error': {'code': 'inline_provider_param_blocked', 'message': "Inline provider parameter header 'x-portkey-retry' is not allowed when block_inline_config is enabled. Configure it on a saved provider instead.", 'field': 'x-portkey-retry'}, 'message': "Inline provider parameter header 'x-portkey-retry' is not allowed when block_inline_config is enabled. Configure it on a saved provider instead."}
+During task with name 'model' and id '1f11b2f2-e18b-9387-3a62-6c37c74a1694'
+2026-09-15 20:31:59,957 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-15 20:31:59,962 | ERROR | langsmith.evaluation._runner | Error running evaluator <DynamicRunEvaluator groundedness_evaluator> on run 01a0a596-cf64-72a3-98b3-2cf3f695f5ae: KeyError('answer')
+Traceback (most recent call last):
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langsmith\evaluation\_runner.py", line 1689, in _run_evaluators
+    evaluator_response = evaluator.evaluate_run(  # type: ignore[call-arg]
+        run=run,
+        example=example,
+        evaluator_run_id=evaluator_run_id,
+    )
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langsmith\evaluation\evaluator.py", line 370, in evaluate_run
+    result = self.func(
+        run,
+        example,
+        langsmith_extra={"run_id": evaluator_run_id, "metadata": metadata},
+    )
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langsmith\run_helpers.py", line 808, in wrapper
+    function_result = run_container["context"].run(
+        func, *args, **kwargs
+    )
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langsmith\evaluation\evaluator.py", line 791, in wrapper
+    return func(*args, **kwargs)
+  File "c:\Rag_Project\hr_assistant\evaluation.py", line 143, in groundedness_evaluator
+    return groundedness_judge(outputs={"answer": outputs["answer"]}, context=outputs["context"])
+                                                 ~~~~~~~^^^^^^^^^^
+KeyError: 'answer'
+2026-09-15 20:31:59,963 | INFO | hr_assistant.pipeline | User question: Within how many days is full and final settlement processed after the last working day?
+2026-09-15 20:32:00,364 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-15 20:32:00,396 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2026-09-15 20:32:00,399 | WARNING | langchain_core.callbacks.manager | Error in LangChainTracer.on_llm_error callback: TracerException('No indexed run ID 01a0a596-d3b1-7771-92a4-387bd99199e4.')
+2026-09-15 20:32:00,427 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2026-09-15 20:32:00,430 | WARNING | langchain_core.callbacks.manager | Error in LangChainTracer.on_llm_error callback: TracerException('No indexed run ID 01a0a596-d3d0-7390-a191-162c2453613e.')
+2026-09-15 20:32:00,443 | ERROR | langsmith.evaluation._runner | Error running target function: Error code: 400 - {'status': 'failure', 'error': {'code': 'inline_provider_param_blocked', 'message': "Inline provider parameter header 'x-portkey-retry' is not allowed when block_inline_config is enabled. Configure it on a saved provider instead.", 'field': 'x-portkey-retry'}, 'message': "Inline provider parameter header 'x-portkey-retry' is not allowed when block_inline_config is enabled. Configure it on a saved provider instead."}
+Traceback (most recent call last):
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langchain_openai\chat_models\base.py", line 1904, in _generate
+    raw_response = self.client.with_raw_response.create(**payload)
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\openai\_legacy_response.py", line 369, in wrapped
+    return cast(LegacyAPIResponse[R], func(*args, **kwargs))
+                                      ~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\openai\_utils\_utils.py", line 298, in wrapper
+    return func(*args, **kwargs)
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\openai\resources\chat\completions\completions.py", line 1308, in create
+    return self._post(
+           ~~~~~~~~~~^
+        "/chat/completions",
+        ^^^^^^^^^^^^^^^^^^^^
+    ...<53 lines>...
+        stream_cls=Stream[ChatCompletionChunk],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\openai\_base_client.py", line 1368, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\openai\_base_client.py", line 1141, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.BadRequestError: Error code: 400 - {'status': 'failure', 'error': {'code': 'inline_provider_param_blocked', 'message': "Inline provider parameter header 'x-portkey-retry' is not allowed when block_inline_config is enabled. Configure it on a saved provider instead.", 'field': 'x-portkey-retry'}, 'message': "Inline provider parameter header 'x-portkey-retry' is not allowed when block_inline_config is enabled. Configure it on a saved provider instead."}
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langsmith\evaluation\_runner.py", line 1999, in _forward
+    fn(*args, langsmith_extra=langsmith_extra)
+    ~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langsmith\run_helpers.py", line 808, in wrapper
+    function_result = run_container["context"].run(
+        func, *args, **kwargs
+    )
+  File "c:\Rag_Project\hr_assistant\evaluation.py", line 123, in target
+    answer = ask(agent, inputs["question"])
+  File "c:\Rag_Project\hr_assistant\pipeline.py", line 79, in ask
+    response=agent.invoke({"messages":[{"role":"user","content":question}]})
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langgraph\pregel\main.py", line 3913, in invoke
+    for chunk in self.stream(
+                 ~~~~~~~~~~~^
+        input,
+        ^^^^^^
+    ...<11 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    ):
+    ^
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langgraph\pregel\main.py", line 2967, in stream
+    for _ in runner.tick(
+             ~~~~~~~~~~~^
+        [t for t in loop.tasks.values() if not t.writes],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+        schedule_task=loop.accept_push,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ):
+    ^
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langgraph\pregel\_runner.py", line 207, in tick
+    run_with_retry(
+    ~~~~~~~~~~~~~~^
+        t,
+        ^^
+    ...<10 lines>...
+        },
+        ^^
+    )
+    ^
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langgraph\pregel\_retry.py", line 617, in run_with_retry
+    return task.proc.invoke(task.input, config)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langgraph\_internal\_runnable.py", line 707, in invoke
+    input = context.run(step.invoke, input, config, **kwargs)
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langgraph\_internal\_runnable.py", line 447, in invoke
+    ret = self.func(*args, **kwargs)
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langchain\agents\factory.py", line 1483, in model_node
+    model_response = _execute_model_sync(request)
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langchain\agents\factory.py", line 1454, in _execute_model_sync
+    output = model_.invoke(messages)
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langchain_core\runnables\fallbacks.py", line 212, in invoke
+    raise first_error
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langchain_core\runnables\fallbacks.py", line 192, in invoke
+    output = context.run(
+        runnable.invoke,
+    ...<2 lines>...
+        **kwargs,
+    )
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langchain_core\runnables\base.py", line 6014, in invoke
+    return self.bound.invoke(
+           ~~~~~~~~~~~~~~~~~^
+        input,
+        ^^^^^^
+        self._merge_configs(config),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        **{**self.kwargs, **kwargs},
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 488, in invoke
+    self.generate_prompt(
+    ~~~~~~~~~~~~~~~~~~~~^
+        [self._convert_input(input)],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    ).generations[0][0],
+    ^
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 1877, in generate_prompt
+    return self.generate(prompt_messages, stop=stop, callbacks=callbacks, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 1684, in generate
+    self._generate_with_cache(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^
+        m,
+        ^^
+    ...<2 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    )
+    ^
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 2022, in _generate_with_cache
+    result = self._generate(
+        messages, stop=stop, run_manager=run_manager, **kwargs
+    )
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langchain_openai\chat_models\base.py", line 1907, in _generate
+    _handle_openai_bad_request(e)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langchain_openai\chat_models\base.py", line 644, in _handle_openai_bad_request
+    raise OpenAIInvalidRequestError(
+        message=e.message, response=e.response, body=e.body
+    ) from e
+langchain_openai.chat_models.base.OpenAIInvalidRequestError: Error code: 400 - {'status': 'failure', 'error': {'code': 'inline_provider_param_blocked', 'message': "Inline provider parameter header 'x-portkey-retry' is not allowed when block_inline_config is enabled. Configure it on a saved provider instead.", 'field': 'x-portkey-retry'}, 'message': "Inline provider parameter header 'x-portkey-retry' is not allowed when block_inline_config is enabled. Configure it on a saved provider instead."}
+During task with name 'model' and id '6f19e907-9d3e-dc68-ab12-ba07a37ceecc'
+2026-09-15 20:32:01,348 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-15 20:32:01,353 | ERROR | langsmith.evaluation._runner | Error running evaluator <DynamicRunEvaluator groundedness_evaluator> on run 01a0a596-d21b-7301-b66e-28c7718c6078: KeyError('answer')
+Traceback (most recent call last):
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langsmith\evaluation\_runner.py", line 1689, in _run_evaluators
+    evaluator_response = evaluator.evaluate_run(  # type: ignore[call-arg]
+        run=run,
+        example=example,
+        evaluator_run_id=evaluator_run_id,
+    )
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langsmith\evaluation\evaluator.py", line 370, in evaluate_run
+    result = self.func(
+        run,
+        example,
+        langsmith_extra={"run_id": evaluator_run_id, "metadata": metadata},
+    )
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langsmith\run_helpers.py", line 808, in wrapper
+    function_result = run_container["context"].run(
+        func, *args, **kwargs
+    )
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langsmith\evaluation\evaluator.py", line 791, in wrapper
+    return func(*args, **kwargs)
+  File "c:\Rag_Project\hr_assistant\evaluation.py", line 143, in groundedness_evaluator
+    return groundedness_judge(outputs={"answer": outputs["answer"]}, context=outputs["context"])
+                                                 ~~~~~~~^^^^^^^^^^
+KeyError: 'answer'
+2026-09-15 20:32:01,355 | INFO | hr_assistant.pipeline | User question: How many days per week can I work from home?
+2026-09-15 20:32:01,799 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-15 20:32:01,831 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2026-09-15 20:32:01,835 | WARNING | langchain_core.callbacks.manager | Error in LangChainTracer.on_llm_error callback: TracerException('No indexed run ID 01a0a596-d94a-70d1-8ed7-39ba1ae9025c.')
+2026-09-15 20:32:01,866 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2026-09-15 20:32:01,869 | WARNING | langchain_core.callbacks.manager | Error in LangChainTracer.on_llm_error callback: TracerException('No indexed run ID 01a0a596-d96c-7280-bb7b-3354bd1e76a0.')
+2026-09-15 20:32:01,882 | ERROR | langsmith.evaluation._runner | Error running target function: Error code: 400 - {'status': 'failure', 'error': {'code': 'inline_provider_param_blocked', 'message': "Inline provider parameter header 'x-portkey-retry' is not allowed when block_inline_config is enabled. Configure it on a saved provider instead.", 'field': 'x-portkey-retry'}, 'message': "Inline provider parameter header 'x-portkey-retry' is not allowed when block_inline_config is enabled. Configure it on a saved provider instead."}
+Traceback (most recent call last):
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langchain_openai\chat_models\base.py", line 1904, in _generate
+    raw_response = self.client.with_raw_response.create(**payload)
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\openai\_legacy_response.py", line 369, in wrapped
+    return cast(LegacyAPIResponse[R], func(*args, **kwargs))
+                                      ~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\openai\_utils\_utils.py", line 298, in wrapper
+    return func(*args, **kwargs)
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\openai\resources\chat\completions\completions.py", line 1308, in create
+    return self._post(
+           ~~~~~~~~~~^
+        "/chat/completions",
+        ^^^^^^^^^^^^^^^^^^^^
+    ...<53 lines>...
+        stream_cls=Stream[ChatCompletionChunk],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\openai\_base_client.py", line 1368, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\openai\_base_client.py", line 1141, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.BadRequestError: Error code: 400 - {'status': 'failure', 'error': {'code': 'inline_provider_param_blocked', 'message': "Inline provider parameter header 'x-portkey-retry' is not allowed when block_inline_config is enabled. Configure it on a saved provider instead.", 'field': 'x-portkey-retry'}, 'message': "Inline provider parameter header 'x-portkey-retry' is not allowed when block_inline_config is enabled. Configure it on a saved provider instead."}
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langsmith\evaluation\_runner.py", line 1999, in _forward
+    fn(*args, langsmith_extra=langsmith_extra)
+    ~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langsmith\run_helpers.py", line 808, in wrapper
+    function_result = run_container["context"].run(
+        func, *args, **kwargs
+    )
+  File "c:\Rag_Project\hr_assistant\evaluation.py", line 123, in target
+    answer = ask(agent, inputs["question"])
+  File "c:\Rag_Project\hr_assistant\pipeline.py", line 79, in ask
+    response=agent.invoke({"messages":[{"role":"user","content":question}]})
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langgraph\pregel\main.py", line 3913, in invoke
+    for chunk in self.stream(
+                 ~~~~~~~~~~~^
+        input,
+        ^^^^^^
+    ...<11 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    ):
+    ^
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langgraph\pregel\main.py", line 2967, in stream
+    for _ in runner.tick(
+             ~~~~~~~~~~~^
+        [t for t in loop.tasks.values() if not t.writes],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+        schedule_task=loop.accept_push,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ):
+    ^
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langgraph\pregel\_runner.py", line 207, in tick
+    run_with_retry(
+    ~~~~~~~~~~~~~~^
+        t,
+        ^^
+    ...<10 lines>...
+        },
+        ^^
+    )
+    ^
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langgraph\pregel\_retry.py", line 617, in run_with_retry
+    return task.proc.invoke(task.input, config)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langgraph\_internal\_runnable.py", line 707, in invoke
+    input = context.run(step.invoke, input, config, **kwargs)
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langgraph\_internal\_runnable.py", line 447, in invoke
+    ret = self.func(*args, **kwargs)
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langchain\agents\factory.py", line 1483, in model_node
+    model_response = _execute_model_sync(request)
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langchain\agents\factory.py", line 1454, in _execute_model_sync
+    output = model_.invoke(messages)
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langchain_core\runnables\fallbacks.py", line 212, in invoke
+    raise first_error
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langchain_core\runnables\fallbacks.py", line 192, in invoke
+    output = context.run(
+        runnable.invoke,
+    ...<2 lines>...
+        **kwargs,
+    )
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langchain_core\runnables\base.py", line 6014, in invoke
+    return self.bound.invoke(
+           ~~~~~~~~~~~~~~~~~^
+        input,
+        ^^^^^^
+        self._merge_configs(config),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        **{**self.kwargs, **kwargs},
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 488, in invoke
+    self.generate_prompt(
+    ~~~~~~~~~~~~~~~~~~~~^
+        [self._convert_input(input)],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    ).generations[0][0],
+    ^
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 1877, in generate_prompt
+    return self.generate(prompt_messages, stop=stop, callbacks=callbacks, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 1684, in generate
+    self._generate_with_cache(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^
+        m,
+        ^^
+    ...<2 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    )
+    ^
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 2022, in _generate_with_cache
+    result = self._generate(
+        messages, stop=stop, run_manager=run_manager, **kwargs
+    )
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langchain_openai\chat_models\base.py", line 1907, in _generate
+    _handle_openai_bad_request(e)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langchain_openai\chat_models\base.py", line 644, in _handle_openai_bad_request
+    raise OpenAIInvalidRequestError(
+        message=e.message, response=e.response, body=e.body
+    ) from e
+langchain_openai.chat_models.base.OpenAIInvalidRequestError: Error code: 400 - {'status': 'failure', 'error': {'code': 'inline_provider_param_blocked', 'message': "Inline provider parameter header 'x-portkey-retry' is not allowed when block_inline_config is enabled. Configure it on a saved provider instead.", 'field': 'x-portkey-retry'}, 'message': "Inline provider parameter header 'x-portkey-retry' is not allowed when block_inline_config is enabled. Configure it on a saved provider instead."}
+During task with name 'model' and id '7b263adf-3a2a-f016-b3af-487a0160ab1a'
+2026-09-15 20:32:02,667 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-15 20:32:02,672 | ERROR | langsmith.evaluation._runner | Error running evaluator <DynamicRunEvaluator groundedness_evaluator> on run 01a0a596-d78b-7a41-9f8e-6ad5cd11365f: KeyError('answer')
+Traceback (most recent call last):
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langsmith\evaluation\_runner.py", line 1689, in _run_evaluators
+    evaluator_response = evaluator.evaluate_run(  # type: ignore[call-arg]
+        run=run,
+        example=example,
+        evaluator_run_id=evaluator_run_id,
+    )
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langsmith\evaluation\evaluator.py", line 370, in evaluate_run
+    result = self.func(
+        run,
+        example,
+        langsmith_extra={"run_id": evaluator_run_id, "metadata": metadata},
+    )
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langsmith\run_helpers.py", line 808, in wrapper
+    function_result = run_container["context"].run(
+        func, *args, **kwargs
+    )
+  File "C:\Rag_Project\basicragenv\Lib\site-packages\langsmith\evaluation\evaluator.py", line 791, in wrapper
+    return func(*args, **kwargs)
+  File "c:\Rag_Project\hr_assistant\evaluation.py", line 143, in groundedness_evaluator
+    return groundedness_judge(outputs={"answer": outputs["answer"]}, context=outputs["context"])
+                                                 ~~~~~~~^^^^^^^^^^
+KeyError: 'answer'

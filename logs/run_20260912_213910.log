@@ -1,0 +1,74 @@
+2026-09-12 21:39:24,534 | INFO | hr_assistant.pipeline | Building HR assistant...
+2026-09-12 21:39:24,535 | INFO | hr_assistant.pipeline | Building HR assistant...
+2026-09-12 21:39:25,203 | INFO | httpx | HTTP Request: GET https://303a03b6-1d8f-457d-af46-336869acd983.eu-west-2-0.aws.cloud.qdrant.io:6333 "HTTP/1.1 200 OK"
+2026-09-12 21:39:25,244 | INFO | httpx | HTTP Request: GET https://303a03b6-1d8f-457d-af46-336869acd983.eu-west-2-0.aws.cloud.qdrant.io:6333/collections/HR_policy/exists "HTTP/1.1 200 OK"
+2026-09-12 21:39:25,247 | INFO | hr_assistant.pipeline | Qdrant Cloud collection already exists, reusing it
+2026-09-12 21:39:25,247 | INFO | hr_assistant.vector_store | Connecting to the quadrant clloud
+2026-09-12 21:39:25,247 | INFO | hr_assistant.embeddings | Initializing embeddings model 'embed-english-light-v3.0'
+2026-09-12 21:40:56,077 | INFO | hr_assistant.pipeline | Building HR assistant...
+2026-09-12 21:40:56,077 | INFO | hr_assistant.pipeline | Building HR assistant...
+2026-09-12 21:40:56,627 | INFO | httpx | HTTP Request: GET https://303a03b6-1d8f-457d-af46-336869acd983.eu-west-2-0.aws.cloud.qdrant.io:6333 "HTTP/1.1 200 OK"
+2026-09-12 21:40:56,628 | INFO | httpx | HTTP Request: GET https://303a03b6-1d8f-457d-af46-336869acd983.eu-west-2-0.aws.cloud.qdrant.io:6333/collections/HR_policy/exists "HTTP/1.1 200 OK"
+2026-09-12 21:40:56,631 | INFO | hr_assistant.pipeline | Qdrant Cloud collection already exists, reusing it
+2026-09-12 21:40:56,631 | INFO | hr_assistant.vector_store | Connecting to the quadrant clloud
+2026-09-12 21:40:56,631 | INFO | hr_assistant.embeddings | Initializing embeddings model 'embed-english-light-v3.0'
+2026-09-12 21:41:32,200 | INFO | hr_assistant.pipeline | Building HR assistant...
+2026-09-12 21:41:32,201 | INFO | hr_assistant.pipeline | Building HR assistant...
+2026-09-12 21:41:32,898 | INFO | httpx | HTTP Request: GET https://303a03b6-1d8f-457d-af46-336869acd983.eu-west-2-0.aws.cloud.qdrant.io:6333/collections/HR_policy/exists "HTTP/1.1 200 OK"
+2026-09-12 21:41:32,901 | INFO | hr_assistant.pipeline | Qdrant Cloud collection already exists, reusing it
+2026-09-12 21:41:32,901 | INFO | hr_assistant.vector_store | Connecting to the quadrant clloud
+2026-09-12 21:41:32,902 | INFO | hr_assistant.embeddings | Initializing embeddings model 'embed-english-light-v3.0'
+2026-09-12 21:41:32,908 | INFO | httpx | HTTP Request: GET https://303a03b6-1d8f-457d-af46-336869acd983.eu-west-2-0.aws.cloud.qdrant.io:6333 "HTTP/1.1 200 OK"
+2026-09-12 21:43:56,189 | INFO | hr_assistant.pipeline | Building HR assistant...
+2026-09-12 21:43:56,189 | INFO | hr_assistant.pipeline | Building HR assistant...
+2026-09-12 21:43:56,847 | INFO | httpx | HTTP Request: GET https://303a03b6-1d8f-457d-af46-336869acd983.eu-west-2-0.aws.cloud.qdrant.io:6333/collections/HR_policy/exists "HTTP/1.1 200 OK"
+2026-09-12 21:43:56,849 | INFO | hr_assistant.pipeline | Qdrant Cloud collection already exists, reusing it
+2026-09-12 21:43:56,849 | INFO | hr_assistant.vector_store | Connecting to the quadrant clloud
+2026-09-12 21:43:56,850 | INFO | hr_assistant.embeddings | Initializing embeddings model 'embed-english-light-v3.0'
+2026-09-12 21:43:57,343 | INFO | httpx | HTTP Request: GET https://303a03b6-1d8f-457d-af46-336869acd983.eu-west-2-0.aws.cloud.qdrant.io:6333 "HTTP/1.1 200 OK"
+2026-09-12 21:46:47,125 | INFO | hr_assistant.pipeline | Building HR assistant...
+2026-09-12 21:46:47,125 | INFO | hr_assistant.pipeline | Building HR assistant...
+2026-09-12 21:46:47,814 | INFO | httpx | HTTP Request: GET https://303a03b6-1d8f-457d-af46-336869acd983.eu-west-2-0.aws.cloud.qdrant.io:6333/collections/HR_policy/exists "HTTP/1.1 200 OK"
+2026-09-12 21:46:47,816 | INFO | hr_assistant.pipeline | Qdrant Cloud collection already exists, reusing it
+2026-09-12 21:46:47,817 | INFO | httpx | HTTP Request: GET https://303a03b6-1d8f-457d-af46-336869acd983.eu-west-2-0.aws.cloud.qdrant.io:6333 "HTTP/1.1 200 OK"
+2026-09-12 21:46:47,817 | INFO | hr_assistant.vector_store | Connecting to the quadrant clloud
+2026-09-12 21:46:47,818 | INFO | hr_assistant.embeddings | Initializing embeddings model 'embed-english-light-v3.0'
+2026-09-12 21:47:31,581 | INFO | hr_assistant.pipeline | Building HR assistant...
+2026-09-12 21:47:31,581 | INFO | hr_assistant.pipeline | Building HR assistant...
+2026-09-12 21:47:32,250 | INFO | httpx | HTTP Request: GET https://303a03b6-1d8f-457d-af46-336869acd983.eu-west-2-0.aws.cloud.qdrant.io:6333/collections/HR_policy/exists "HTTP/1.1 200 OK"
+2026-09-12 21:47:32,253 | INFO | hr_assistant.pipeline | Qdrant Cloud collection already exists, reusing it
+2026-09-12 21:47:32,253 | INFO | hr_assistant.vector_store | Connecting to the quadrant clloud
+2026-09-12 21:47:32,253 | INFO | hr_assistant.embeddings | Initializing embeddings model 'embed-english-light-v3.0'
+2026-09-12 21:47:32,269 | INFO | httpx | HTTP Request: GET https://303a03b6-1d8f-457d-af46-336869acd983.eu-west-2-0.aws.cloud.qdrant.io:6333 "HTTP/1.1 200 OK"
+2026-09-12 21:48:43,271 | INFO | hr_assistant.pipeline | Building HR assistant...
+2026-09-12 21:48:43,272 | INFO | hr_assistant.pipeline | Building HR assistant...
+2026-09-12 21:48:44,027 | INFO | httpx | HTTP Request: GET https://303a03b6-1d8f-457d-af46-336869acd983.eu-west-2-0.aws.cloud.qdrant.io:6333 "HTTP/1.1 200 OK"
+2026-09-12 21:48:44,029 | INFO | httpx | HTTP Request: GET https://303a03b6-1d8f-457d-af46-336869acd983.eu-west-2-0.aws.cloud.qdrant.io:6333/collections/HR_policy/exists "HTTP/1.1 200 OK"
+2026-09-12 21:48:44,031 | INFO | hr_assistant.pipeline | Qdrant Cloud collection already exists, reusing it
+2026-09-12 21:48:44,031 | INFO | hr_assistant.vector_store | Connecting to the quadrant clloud
+2026-09-12 21:48:44,031 | INFO | hr_assistant.embeddings | Initializing embeddings model 'embed-english-light-v3.0'
+2026-09-12 21:48:44,601 | INFO | httpx | HTTP Request: GET https://303a03b6-1d8f-457d-af46-336869acd983.eu-west-2-0.aws.cloud.qdrant.io:6333/collections/HR_policy "HTTP/1.1 200 OK"
+2026-09-12 21:48:44,651 | INFO | httpx | HTTP Request: GET https://303a03b6-1d8f-457d-af46-336869acd983.eu-west-2-0.aws.cloud.qdrant.io:6333 "HTTP/1.1 200 OK"
+2026-09-12 21:48:45,045 | INFO | httpx | HTTP Request: POST https://api.cohere.com/v1/embed "HTTP/1.1 200 OK"
+2026-09-12 21:48:45,053 | INFO | hr_assistant.vector_store | Creating retriever with top_k=3
+2026-09-12 21:48:45,058 | INFO | hr_assistant.llm | Initializing LLM via a portkey 
+2026-09-12 21:50:07,545 | INFO | hr_assistant.pipeline | Building HR assistant...
+2026-09-12 21:50:07,545 | INFO | hr_assistant.pipeline | Building HR assistant...
+2026-09-12 21:50:08,258 | INFO | httpx | HTTP Request: GET https://303a03b6-1d8f-457d-af46-336869acd983.eu-west-2-0.aws.cloud.qdrant.io:6333 "HTTP/1.1 200 OK"
+2026-09-12 21:50:08,271 | INFO | httpx | HTTP Request: GET https://303a03b6-1d8f-457d-af46-336869acd983.eu-west-2-0.aws.cloud.qdrant.io:6333/collections/HR_policy/exists "HTTP/1.1 200 OK"
+2026-09-12 21:50:08,273 | INFO | hr_assistant.pipeline | Qdrant Cloud collection already exists, reusing it
+2026-09-12 21:50:08,274 | INFO | hr_assistant.vector_store | Connecting to the quadrant clloud
+2026-09-12 21:50:08,274 | INFO | hr_assistant.embeddings | Initializing embeddings model 'embed-english-light-v3.0'
+2026-09-12 21:50:08,836 | INFO | httpx | HTTP Request: GET https://303a03b6-1d8f-457d-af46-336869acd983.eu-west-2-0.aws.cloud.qdrant.io:6333/collections/HR_policy "HTTP/1.1 200 OK"
+2026-09-12 21:50:08,902 | INFO | httpx | HTTP Request: GET https://303a03b6-1d8f-457d-af46-336869acd983.eu-west-2-0.aws.cloud.qdrant.io:6333 "HTTP/1.1 200 OK"
+2026-09-12 21:50:09,250 | INFO | httpx | HTTP Request: POST https://api.cohere.com/v1/embed "HTTP/1.1 200 OK"
+2026-09-12 21:50:09,256 | INFO | hr_assistant.vector_store | Creating retriever with top_k=3
+2026-09-12 21:50:09,260 | INFO | hr_assistant.llm | Initializing LLM via a portkey 
+2026-09-12 21:50:09,260 | INFO | hr_assistant.gateway | Routing LLM calls through Portkey (provider=@hrpolicy)
+2026-09-12 21:50:18,897 | INFO | hr_assistant.agent | Creating HR agent with 1 tool(s)
+2026-09-12 21:50:18,933 | INFO | hr_assistant.agent | HR agent Ready
+2026-09-12 21:50:18,934 | INFO | hr_assistant.pipeline | HR assistant is ready to take questions
+2026-09-12 21:54:08,704 | INFO | __main__ | === Streamlit run: new question received ===
+2026-09-12 21:54:08,707 | INFO | hr_assistant.pipeline | User question: hi
+2026-09-12 21:54:09,311 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-12 21:54:10,405 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 400 Bad Request"

@@ -27,10 +27,10 @@ def build_vector_store(chunks):
     
     vector_store = QdrantVectorStore.from_documents(
         chunks,
-        embedding=embeddings_model,
+        embedding=config.EMBEDDING_MODEL,
         url=config.QDRANT_URL,
         api_key= config.QDRANT_API_KEY,
-        collection_name=config.QDRANT_COLLECTION_NAME
+        collection_name=config.QDRANT_COLLECTION_NAME,
     )
     logger.info("Uploaded to qdrant collection '%s'",config.QDRANT_COLLECTION_NAME)
     return vector_store
@@ -47,11 +47,12 @@ def load_vector_store():
     logger.info("Connecting to the quadrant clloud")
     embeddings_models = get_embeddings_models()
 
-    return QdrantVectorStore.from_documents(
-        embeddings=embeddings_model,
+    return QdrantVectorStore.from_existing_collection(
+        
+        embedding=embeddings_models,
         url=config.QDRANT_URL,
         api_key= config.QDRANT_API_KEY,
-        collection_name=config.QDRANT_COLLECTION_NAME
+        collection_name=config.QDRANT_COLLECTION_NAME,
     )
 
 
@@ -76,4 +77,5 @@ def vector_store_exixts()->bool:
 
 def get_retriever(vector_store,k:int=config.TOP_K_RESULTS):
     """Turn a vector store into a retriever that return the top-k matching chunks"""
+    logger.info("Creating retriever with top_k=%d", k)
     return vector_store.as_retriever(search_kwargs={"k":k})

@@ -1,0 +1,195 @@
+2026-09-15 20:58:51,485 | INFO | hr_assistant.evaluation | Dataset 'hr-policy-qna' already exists, reusing it
+2026-09-15 20:58:51,809 | INFO | hr_assistant.pipeline | Building HR assistant...
+2026-09-15 20:58:51,809 | INFO | hr_assistant.pipeline | Building HR assistant...
+2026-09-15 20:58:52,395 | INFO | httpx | HTTP Request: GET https://303a03b6-1d8f-457d-af46-336869acd983.eu-west-2-0.aws.cloud.qdrant.io:6333/collections/HR_policy/exists "HTTP/1.1 200 OK"
+2026-09-15 20:58:52,396 | INFO | hr_assistant.pipeline | Qdrant Cloud collection already exists, reusing it
+2026-09-15 20:58:52,397 | INFO | hr_assistant.vector_store | Connecting to the quadrant clloud
+2026-09-15 20:58:52,402 | INFO | hr_assistant.embeddings | Initializing embeddings model 'embed-english-light-v3.0'
+2026-09-15 20:58:53,022 | INFO | httpx | HTTP Request: GET https://303a03b6-1d8f-457d-af46-336869acd983.eu-west-2-0.aws.cloud.qdrant.io:6333 "HTTP/1.1 200 OK"
+2026-09-15 20:58:53,027 | INFO | httpx | HTTP Request: GET https://303a03b6-1d8f-457d-af46-336869acd983.eu-west-2-0.aws.cloud.qdrant.io:6333/collections/HR_policy "HTTP/1.1 200 OK"
+2026-09-15 20:58:53,354 | INFO | httpx | HTTP Request: GET https://303a03b6-1d8f-457d-af46-336869acd983.eu-west-2-0.aws.cloud.qdrant.io:6333 "HTTP/1.1 200 OK"
+2026-09-15 20:58:53,449 | INFO | httpx | HTTP Request: POST https://api.cohere.com/v1/embed "HTTP/1.1 200 OK"
+2026-09-15 20:58:53,453 | INFO | hr_assistant.vector_store | Creating retriever with top_k=3
+2026-09-15 20:58:53,455 | INFO | hr_assistant.llm | Initializing LLM via a portkey 
+2026-09-15 20:58:53,455 | INFO | hr_assistant.gateway | Routing LLM calls through Portkey (config=pc-hr-pol-d3a682)
+2026-09-15 20:58:53,930 | INFO | hr_assistant.agent | Creating HR agent with 1 tool(s)
+2026-09-15 20:58:53,935 | INFO | hr_assistant.agent | HR agent Ready
+2026-09-15 20:58:53,935 | INFO | hr_assistant.pipeline | HR assistant is ready to take questions
+2026-09-15 20:58:53,935 | INFO | hr_assistant.vector_store | Connecting to the quadrant clloud
+2026-09-15 20:58:53,935 | INFO | hr_assistant.embeddings | Initializing embeddings model 'embed-english-light-v3.0'
+2026-09-15 20:58:54,474 | INFO | httpx | HTTP Request: GET https://303a03b6-1d8f-457d-af46-336869acd983.eu-west-2-0.aws.cloud.qdrant.io:6333 "HTTP/1.1 200 OK"
+2026-09-15 20:58:54,528 | INFO | httpx | HTTP Request: GET https://303a03b6-1d8f-457d-af46-336869acd983.eu-west-2-0.aws.cloud.qdrant.io:6333/collections/HR_policy "HTTP/1.1 200 OK"
+2026-09-15 20:58:54,907 | INFO | httpx | HTTP Request: POST https://api.cohere.com/v1/embed "HTTP/1.1 200 OK"
+2026-09-15 20:58:54,912 | INFO | hr_assistant.vector_store | Creating retriever with top_k=3
+2026-09-15 20:58:54,913 | INFO | hr_assistant.evaluation | Running evaluation against dataset 'hr-policy-qna'
+2026-09-15 20:58:57,050 | INFO | hr_assistant.pipeline | User question: How many days of unused annual leave can be carried forward?
+2026-09-15 20:58:57,328 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-15 20:58:58,356 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-15 20:58:58,369 | INFO | hr_assistant.tools | search_hr_policy called with query: How many days of unused annual leave can be carried forward?
+2026-09-15 20:58:58,739 | INFO | httpx | HTTP Request: POST https://api.cohere.com/v1/embed "HTTP/1.1 200 OK"
+2026-09-15 20:58:59,255 | INFO | httpx | HTTP Request: POST https://303a03b6-1d8f-457d-af46-336869acd983.eu-west-2-0.aws.cloud.qdrant.io:6333/collections/HR_policy/points/query "HTTP/1.1 200 OK"
+2026-09-15 20:58:59,257 | INFO | hr_assistant.tools | Found 3 matching chunk(s)
+2026-09-15 20:58:59,518 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-15 20:58:59,520 | INFO | hr_assistant.pipeline | Final answer: According to Acme Crop’s leave policy, you may carry forward **up to 5 days** of unused annual leave into the next calendar year.
+2026-09-15 20:58:59,756 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-15 20:59:00,105 | INFO | httpx | HTTP Request: POST https://api.cohere.com/v1/embed "HTTP/1.1 200 OK"
+2026-09-15 20:59:00,593 | INFO | httpx | HTTP Request: POST https://303a03b6-1d8f-457d-af46-336869acd983.eu-west-2-0.aws.cloud.qdrant.io:6333/collections/HR_policy/points/query "HTTP/1.1 200 OK"
+2026-09-15 20:59:01,458 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-15 20:59:02,243 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-15 20:59:02,247 | INFO | hr_assistant.pipeline | User question: Within how many days must reimbursement claims be submitted?
+2026-09-15 20:59:02,468 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-15 20:59:02,851 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-15 20:59:02,855 | INFO | hr_assistant.tools | search_hr_policy called with query: Within how many days must reimbursement claims be submitted?
+2026-09-15 20:59:03,195 | INFO | httpx | HTTP Request: POST https://api.cohere.com/v1/embed "HTTP/1.1 200 OK"
+2026-09-15 20:59:03,364 | INFO | httpx | HTTP Request: POST https://303a03b6-1d8f-457d-af46-336869acd983.eu-west-2-0.aws.cloud.qdrant.io:6333/collections/HR_policy/points/query "HTTP/1.1 200 OK"
+2026-09-15 20:59:03,365 | INFO | hr_assistant.tools | Found 3 matching chunk(s)
+2026-09-15 20:59:03,769 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-15 20:59:03,771 | INFO | hr_assistant.pipeline | Final answer: Reimbursement claims must be submitted within **30 days** of the expense.
+2026-09-15 20:59:04,002 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-15 20:59:04,363 | INFO | httpx | HTTP Request: POST https://api.cohere.com/v1/embed "HTTP/1.1 200 OK"
+2026-09-15 20:59:04,525 | INFO | httpx | HTTP Request: POST https://303a03b6-1d8f-457d-af46-336869acd983.eu-west-2-0.aws.cloud.qdrant.io:6333/collections/HR_policy/points/query "HTTP/1.1 200 OK"
+2026-09-15 20:59:05,021 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-15 20:59:05,695 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-15 20:59:05,699 | INFO | hr_assistant.pipeline | User question: How long is the probation period?
+2026-09-15 20:59:05,965 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-15 20:59:06,231 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-15 20:59:06,235 | INFO | hr_assistant.tools | search_hr_policy called with query: probation period
+2026-09-15 20:59:06,576 | INFO | httpx | HTTP Request: POST https://api.cohere.com/v1/embed "HTTP/1.1 200 OK"
+2026-09-15 20:59:06,747 | INFO | httpx | HTTP Request: POST https://303a03b6-1d8f-457d-af46-336869acd983.eu-west-2-0.aws.cloud.qdrant.io:6333/collections/HR_policy/points/query "HTTP/1.1 200 OK"
+2026-09-15 20:59:06,749 | INFO | hr_assistant.tools | Found 3 matching chunk(s)
+2026-09-15 20:59:07,034 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-15 20:59:07,036 | INFO | hr_assistant.pipeline | Final answer: The probation period for new employees at Acme Crop is **3 months** from the date of joining. During this time, employees are not eligible for paid leave, but they may request unpaid leave for emergencies with manager approval. Performance is reviewed at the end of the probation to confirm employment.
+2026-09-15 20:59:07,636 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-15 20:59:07,972 | INFO | httpx | HTTP Request: POST https://api.cohere.com/v1/embed "HTTP/1.1 200 OK"
+2026-09-15 20:59:08,134 | INFO | httpx | HTTP Request: POST https://303a03b6-1d8f-457d-af46-336869acd983.eu-west-2-0.aws.cloud.qdrant.io:6333/collections/HR_policy/points/query "HTTP/1.1 200 OK"
+2026-09-15 20:59:08,972 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-15 20:59:10,304 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-15 20:59:10,308 | INFO | hr_assistant.pipeline | User question: How many paid sick days do I get per year?
+2026-09-15 20:59:10,569 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-15 20:59:10,834 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-15 20:59:10,839 | INFO | hr_assistant.tools | search_hr_policy called with query: How many paid sick days do I get per year?
+2026-09-15 20:59:11,166 | INFO | httpx | HTTP Request: POST https://api.cohere.com/v1/embed "HTTP/1.1 200 OK"
+2026-09-15 20:59:11,342 | INFO | httpx | HTTP Request: POST https://303a03b6-1d8f-457d-af46-336869acd983.eu-west-2-0.aws.cloud.qdrant.io:6333/collections/HR_policy/points/query "HTTP/1.1 200 OK"
+2026-09-15 20:59:11,344 | INFO | hr_assistant.tools | Found 3 matching chunk(s)
+2026-09-15 20:59:11,752 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-15 20:59:11,754 | INFO | hr_assistant.pipeline | Final answer: 👋 Hi there! According to Acme Crop’s leave policy, full‑time employees are entitled to **10 paid sick days per calendar year**. If you need to take a sick day, just remember to submit a medical certificate if your absence exceeds two consecutive days. Let me know if you have any other HR questions!
+2026-09-15 20:59:12,170 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-15 20:59:12,548 | INFO | httpx | HTTP Request: POST https://api.cohere.com/v1/embed "HTTP/1.1 200 OK"
+2026-09-15 20:59:12,711 | INFO | httpx | HTTP Request: POST https://303a03b6-1d8f-457d-af46-336869acd983.eu-west-2-0.aws.cloud.qdrant.io:6333/collections/HR_policy/points/query "HTTP/1.1 200 OK"
+2026-09-15 20:59:13,355 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-15 20:59:14,201 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-15 20:59:14,205 | INFO | hr_assistant.pipeline | User question: How many public holidays does the company observe each year?
+2026-09-15 20:59:14,494 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-15 20:59:14,755 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-15 20:59:14,760 | INFO | hr_assistant.tools | search_hr_policy called with query: How many public holidays does the company observe each year?
+2026-09-15 20:59:15,101 | INFO | httpx | HTTP Request: POST https://api.cohere.com/v1/embed "HTTP/1.1 200 OK"
+2026-09-15 20:59:15,276 | INFO | httpx | HTTP Request: POST https://303a03b6-1d8f-457d-af46-336869acd983.eu-west-2-0.aws.cloud.qdrant.io:6333/collections/HR_policy/points/query "HTTP/1.1 200 OK"
+2026-09-15 20:59:15,277 | INFO | hr_assistant.tools | Found 3 matching chunk(s)
+2026-09-15 20:59:15,552 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-15 20:59:15,554 | INFO | hr_assistant.pipeline | Final answer: The company observes **12 public holidays** each year.
+2026-09-15 20:59:16,098 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-15 20:59:16,435 | INFO | httpx | HTTP Request: POST https://api.cohere.com/v1/embed "HTTP/1.1 200 OK"
+2026-09-15 20:59:16,601 | INFO | httpx | HTTP Request: POST https://303a03b6-1d8f-457d-af46-336869acd983.eu-west-2-0.aws.cloud.qdrant.io:6333/collections/HR_policy/points/query "HTTP/1.1 200 OK"
+2026-09-15 20:59:17,394 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-15 20:59:17,479 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-09-15 20:59:17,480 | INFO | openai._base_client | Retrying request in 4.000000 seconds
+2026-09-15 20:59:22,206 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-15 20:59:22,210 | INFO | hr_assistant.pipeline | User question: What is the notice period during probation?
+2026-09-15 20:59:22,481 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-15 20:59:23,118 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-15 20:59:23,122 | INFO | hr_assistant.tools | search_hr_policy called with query: What is the notice period during probation?
+2026-09-15 20:59:23,526 | INFO | httpx | HTTP Request: POST https://api.cohere.com/v1/embed "HTTP/1.1 200 OK"
+2026-09-15 20:59:24,074 | INFO | httpx | HTTP Request: POST https://303a03b6-1d8f-457d-af46-336869acd983.eu-west-2-0.aws.cloud.qdrant.io:6333/collections/HR_policy/points/query "HTTP/1.1 200 OK"
+2026-09-15 20:59:24,075 | INFO | hr_assistant.tools | Found 3 matching chunk(s)
+2026-09-15 20:59:24,443 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-15 20:59:24,445 | INFO | hr_assistant.pipeline | Final answer: During probation, the notice period is **15 days**.
+2026-09-15 20:59:24,707 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-15 20:59:25,179 | INFO | httpx | HTTP Request: POST https://api.cohere.com/v1/embed "HTTP/1.1 200 OK"
+2026-09-15 20:59:25,755 | INFO | httpx | HTTP Request: POST https://303a03b6-1d8f-457d-af46-336869acd983.eu-west-2-0.aws.cloud.qdrant.io:6333/collections/HR_policy/points/query "HTTP/1.1 200 OK"
+2026-09-15 20:59:25,825 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-09-15 20:59:25,825 | INFO | openai._base_client | Retrying request in 1.000000 seconds
+2026-09-15 20:59:27,734 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-15 20:59:27,801 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-09-15 20:59:27,802 | INFO | openai._base_client | Retrying request in 6.000000 seconds
+2026-09-15 20:59:34,509 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-15 20:59:34,514 | INFO | hr_assistant.pipeline | User question: How many days of paid annual leave do I get per year?
+2026-09-15 20:59:34,909 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-15 20:59:35,176 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-15 20:59:35,180 | INFO | hr_assistant.tools | search_hr_policy called with query: How many days of paid annual leave do I get per year?
+2026-09-15 20:59:35,610 | INFO | httpx | HTTP Request: POST https://api.cohere.com/v1/embed "HTTP/1.1 200 OK"
+2026-09-15 20:59:36,092 | INFO | httpx | HTTP Request: POST https://303a03b6-1d8f-457d-af46-336869acd983.eu-west-2-0.aws.cloud.qdrant.io:6333/collections/HR_policy/points/query "HTTP/1.1 200 OK"
+2026-09-15 20:59:36,094 | INFO | hr_assistant.tools | Found 3 matching chunk(s)
+2026-09-15 20:59:36,404 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-15 20:59:36,406 | INFO | hr_assistant.pipeline | Final answer: You’re entitled to **20 days of paid annual leave each calendar year** as a full‑time employee.  
+- You can carry over up to **5 days** of unused leave to the next year.  
+- Remember to submit your leave request through the HR portal at least 5 working days in advance.
+2026-09-15 20:59:36,767 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-15 20:59:37,143 | INFO | httpx | HTTP Request: POST https://api.cohere.com/v1/embed "HTTP/1.1 200 OK"
+2026-09-15 20:59:37,679 | INFO | httpx | HTTP Request: POST https://303a03b6-1d8f-457d-af46-336869acd983.eu-west-2-0.aws.cloud.qdrant.io:6333/collections/HR_policy/points/query "HTTP/1.1 200 OK"
+2026-09-15 20:59:37,756 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-09-15 20:59:37,756 | INFO | openai._base_client | Retrying request in 4.000000 seconds
+2026-09-15 20:59:41,823 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-09-15 20:59:41,824 | INFO | openai._base_client | Retrying request in 1.000000 seconds
+2026-09-15 20:59:43,990 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-15 20:59:44,065 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-09-15 20:59:44,065 | INFO | openai._base_client | Retrying request in 9.000000 seconds
+2026-09-15 20:59:54,159 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-15 20:59:54,163 | INFO | hr_assistant.pipeline | User question: What is the standard notice period for resignation?
+2026-09-15 20:59:54,450 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-15 20:59:54,720 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-15 20:59:54,724 | INFO | hr_assistant.tools | search_hr_policy called with query: What is the standard notice period for resignation?
+2026-09-15 20:59:55,306 | INFO | httpx | HTTP Request: POST https://api.cohere.com/v1/embed "HTTP/1.1 200 OK"
+2026-09-15 20:59:55,792 | INFO | httpx | HTTP Request: POST https://303a03b6-1d8f-457d-af46-336869acd983.eu-west-2-0.aws.cloud.qdrant.io:6333/collections/HR_policy/points/query "HTTP/1.1 200 OK"
+2026-09-15 20:59:55,793 | INFO | hr_assistant.tools | Found 3 matching chunk(s)
+2026-09-15 20:59:56,054 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-15 20:59:56,057 | INFO | hr_assistant.pipeline | Final answer: 👋 Hi there! According to Acme Crop’s HR policy, the standard notice period for resignation is **30 days**.  
+If you’re still within your probation period, that notice period is shortened to **15 days**.  
+
+If you have any other questions—like about the clearance process, final settlement, or anything else—just let me know!
+2026-09-15 20:59:56,605 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-15 20:59:56,978 | INFO | httpx | HTTP Request: POST https://api.cohere.com/v1/embed "HTTP/1.1 200 OK"
+2026-09-15 20:59:57,503 | INFO | httpx | HTTP Request: POST https://303a03b6-1d8f-457d-af46-336869acd983.eu-west-2-0.aws.cloud.qdrant.io:6333/collections/HR_policy/points/query "HTTP/1.1 200 OK"
+2026-09-15 20:59:57,579 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-09-15 20:59:57,580 | INFO | openai._base_client | Retrying request in 4.000000 seconds
+2026-09-15 21:00:02,536 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-15 21:00:02,621 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-09-15 21:00:02,621 | INFO | openai._base_client | Retrying request in 7.000000 seconds
+2026-09-15 21:00:10,845 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-15 21:00:10,849 | INFO | hr_assistant.pipeline | User question: Within how many days is full and final settlement processed after the last working day?
+2026-09-15 21:00:11,190 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-15 21:00:11,562 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-15 21:00:11,565 | INFO | hr_assistant.tools | search_hr_policy called with query: full and final settlement processed after the last working day
+2026-09-15 21:00:11,938 | INFO | httpx | HTTP Request: POST https://api.cohere.com/v1/embed "HTTP/1.1 200 OK"
+2026-09-15 21:00:12,472 | INFO | httpx | HTTP Request: POST https://303a03b6-1d8f-457d-af46-336869acd983.eu-west-2-0.aws.cloud.qdrant.io:6333/collections/HR_policy/points/query "HTTP/1.1 200 OK"
+2026-09-15 21:00:12,473 | INFO | hr_assistant.tools | Found 3 matching chunk(s)
+2026-09-15 21:00:12,889 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-15 21:00:12,891 | INFO | hr_assistant.pipeline | Final answer: Full‑and‑final settlement is completed within **45 days** from the employee’s last working day.
+2026-09-15 21:00:13,160 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-15 21:00:13,600 | INFO | httpx | HTTP Request: POST https://api.cohere.com/v1/embed "HTTP/1.1 200 OK"
+2026-09-15 21:00:14,123 | INFO | httpx | HTTP Request: POST https://303a03b6-1d8f-457d-af46-336869acd983.eu-west-2-0.aws.cloud.qdrant.io:6333/collections/HR_policy/points/query "HTTP/1.1 200 OK"
+2026-09-15 21:00:14,194 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-09-15 21:00:14,195 | INFO | openai._base_client | Retrying request in 5.000000 seconds
+2026-09-15 21:00:19,316 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-09-15 21:00:19,316 | INFO | openai._base_client | Retrying request in 3.000000 seconds
+2026-09-15 21:00:24,157 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-15 21:00:24,232 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-09-15 21:00:24,233 | INFO | openai._base_client | Retrying request in 1.000000 seconds
+2026-09-15 21:00:26,188 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-15 21:00:26,192 | INFO | hr_assistant.pipeline | User question: How many days per week can I work from home?
+2026-09-15 21:00:26,483 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-15 21:00:26,813 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-15 21:00:26,817 | INFO | hr_assistant.tools | search_hr_policy called with query: work from home
+2026-09-15 21:00:27,208 | INFO | httpx | HTTP Request: POST https://api.cohere.com/v1/embed "HTTP/1.1 200 OK"
+2026-09-15 21:00:27,685 | INFO | httpx | HTTP Request: POST https://303a03b6-1d8f-457d-af46-336869acd983.eu-west-2-0.aws.cloud.qdrant.io:6333/collections/HR_policy/points/query "HTTP/1.1 200 OK"
+2026-09-15 21:00:27,686 | INFO | hr_assistant.tools | Found 3 matching chunk(s)
+2026-09-15 21:00:27,967 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-15 21:00:27,969 | INFO | hr_assistant.pipeline | Final answer: According to our Work‑From‑Home policy, employees may work from home **up to 2 days per week**, subject to manager approval.
+2026-09-15 21:00:28,354 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-15 21:00:28,745 | INFO | httpx | HTTP Request: POST https://api.cohere.com/v1/embed "HTTP/1.1 200 OK"
+2026-09-15 21:00:29,245 | INFO | httpx | HTTP Request: POST https://303a03b6-1d8f-457d-af46-336869acd983.eu-west-2-0.aws.cloud.qdrant.io:6333/collections/HR_policy/points/query "HTTP/1.1 200 OK"
+2026-09-15 21:00:29,321 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-09-15 21:00:29,322 | INFO | openai._base_client | Retrying request in 5.000000 seconds
+2026-09-15 21:00:35,521 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-15 21:00:35,595 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-09-15 21:00:35,595 | INFO | openai._base_client | Retrying request in 8.000000 seconds
+2026-09-15 21:00:44,451 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"

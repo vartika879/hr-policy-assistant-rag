@@ -20,3 +20,16 @@ langchain_cohere
 
 langchain-qdrant
 qdrant-client
+
+
+# LLM GATEWAY
+portkey-ai
+langchain-cerebras
+
+# every gateway  -- gives you an openai comaptible  code
+
+langchain-gemini
+
+
+# evaluaions
+openevals

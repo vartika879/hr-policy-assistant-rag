@@ -9,6 +9,10 @@ load_dotenv()
 ## ENV VAR/ SECRET
 GROQ_API_KEY=os.getenv("GROQ_API_KEY")
 COHERE_API_KEY=os.getenv("COHERE_API_KEY")
+GEMINI_API_KEY=os.getenv("GEMINI_API_KEY")
+
+# GATEWAY
+PORTKEY_API_KEY=os.getenv("PORTKEY_API_KEY")
 
 GUARD_MODEL_NAME = "openai/gpt-oss-safeguard-20b"
 

@@ -1,5 +1,8 @@
 """Step 6: connect to the LLM (the "brain" of the assistant)."""
-from langchain_groq import ChatGroq
+
+from hr_assistant.gateway import get_gateway_llm
+
+
 from hr_assistant import config
 
 #from hr_assistant.gateway import get_gateway_llm
@@ -10,6 +13,6 @@ logger = get_logger(__name__)
 
 def get_llm():
     """Return a Groq chat model.Reads GROQ_API_KEY from the environment"""
-    logger.info("Initializing LLM ")
-    return ChatGroq(model=config.LLM_MODEL_NAME,temperature=0)
+    logger.info("Initializing LLM via a portkey ")
+    return get_gateway_llm()
 
