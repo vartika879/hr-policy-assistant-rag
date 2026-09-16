@@ -60,6 +60,7 @@ def load_vector_store():
         api_key= config.QDRANT_API_KEY,
         collection_name=config.QDRANT_COLLECTION_NAME,
     )
+    )
     return vector_store
 
 
