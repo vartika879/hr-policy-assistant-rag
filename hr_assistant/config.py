@@ -57,11 +57,17 @@ SYSTEM_PROMPT = ("you are afriendly HR assistant working for acme crop." \
     "fact before answering . if the answer isn't in the search result, say you dont know instead of guessing ."
     
 )
+def check_api_key() -> None:
+    """Stop early with a clear message if a required API key is missing."""
 
-def check_api_key()->None:
-    """Stop early with a clear mesage if a required API key is missing """
-    if not GROQ_API_KEY:
-        raise ValueError("Groq api is missing")
+    if not PORTKEY_API_KEY:
+        raise ValueError("PORTKEY_API_KEY is missing")
+
     if not COHERE_API_KEY:
-            raise ValueError("Groq api is missing")
-    
+        raise ValueError("COHERE_API_KEY is missing")
+
+    if not QDRANT_URL:
+        raise ValueError("QDRANT_URL is missing")
+
+    if not QDRANT_API_KEY:
+        raise ValueError("QDRANT_API_KEY is missing")

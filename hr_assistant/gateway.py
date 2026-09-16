@@ -18,9 +18,7 @@ a second slug if @hrpolicy fails - see docs/05_portkey_gateway.md.
 
 
 from langchain_openai import ChatOpenAI
-import json
 
-from langchain_groq import ChatGroq
 
 
 from portkey_ai import createHeaders,PORTKEY_GATEWAY_URL
