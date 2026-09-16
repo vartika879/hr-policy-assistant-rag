@@ -21,14 +21,14 @@ def get_gateway_llm() -> ChatOpenAI:
     logger.info("Portkey gateway URL: %s", PORTKEY_GATEWAY_URL)
     logger.info("Portkey config: %s", GATEWAY_CONFIG_SLUG)
 
-    headers = createHeaders(
+    portkey_headers = createHeaders(
         api_key=config.PORTKEY_API_KEY,
         config=GATEWAY_CONFIG_SLUG,
     )
 
     return ChatOpenAI(
-        api_key=config.GROQ_API_KEY,
+        api_key=config.PORTKEY_API_KEY,
         base_url=PORTKEY_GATEWAY_URL,
         model=config.LLM_MODEL_NAME,
-        default_headers=headers,
+        default_headers=portkey_headers,
     )
