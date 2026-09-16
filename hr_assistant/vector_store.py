@@ -48,19 +48,18 @@ def load_vector_store():
     logger.info("Connecting to the quadrant clloud",config.QDRANT_COLLECTION_NAME,)
     embeddings_model = get_embeddings_models()
 
-
-    return QdrantVectorStore.from_existing_collection(
-        
-        embeddings=embeddings_models,
-
     vector_store = QdrantVectorStore.from_existing_collection(
         embedding=embeddings_model,
-
         url=config.QDRANT_URL,
         api_key= config.QDRANT_API_KEY,
         collection_name=config.QDRANT_COLLECTION_NAME,
     )
+    logger.info(
+        "Successfully loaded Qdrant collection: %s",
+        config.QDRANT_COLLECTION_NAME,
     )
+
+    
     return vector_store
 
 
