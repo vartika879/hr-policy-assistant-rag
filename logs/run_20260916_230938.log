@@ -1,0 +1,48 @@
+2026-09-16 23:10:26,400 | INFO | hr_assistant.pipeline | Building HR assistant...
+2026-09-16 23:10:26,401 | INFO | hr_assistant.pipeline | Building HR assistant...
+2026-09-16 23:10:26,940 | INFO | httpx | HTTP Request: GET https://303a03b6-1d8f-457d-af46-336869acd983.eu-west-2-0.aws.cloud.qdrant.io:6333/collections/HR_policy/exists "HTTP/1.1 200 OK"
+2026-09-16 23:10:26,942 | INFO | hr_assistant.pipeline | Qdrant Cloud collection already exists, reusing it
+2026-09-16 23:10:26,947 | INFO | hr_assistant.embeddings | Initializing embeddings model 'embed-english-light-v3.0'
+2026-09-16 23:10:26,964 | INFO | httpx | HTTP Request: GET https://303a03b6-1d8f-457d-af46-336869acd983.eu-west-2-0.aws.cloud.qdrant.io:6333 "HTTP/1.1 200 OK"
+2026-09-16 23:10:27,607 | INFO | httpx | HTTP Request: GET https://303a03b6-1d8f-457d-af46-336869acd983.eu-west-2-0.aws.cloud.qdrant.io:6333/collections/HR_policy "HTTP/1.1 200 OK"
+2026-09-16 23:10:27,640 | INFO | httpx | HTTP Request: GET https://303a03b6-1d8f-457d-af46-336869acd983.eu-west-2-0.aws.cloud.qdrant.io:6333 "HTTP/1.1 200 OK"
+2026-09-16 23:10:28,032 | INFO | httpx | HTTP Request: POST https://api.cohere.com/v1/embed "HTTP/1.1 200 OK"
+2026-09-16 23:10:28,036 | INFO | hr_assistant.vector_store | Successfully loaded Qdrant collection: HR_policy
+2026-09-16 23:10:28,036 | INFO | hr_assistant.vector_store | Creating retriever with top_k=3
+2026-09-16 23:10:28,039 | INFO | hr_assistant.llm | Initializing LLM via a portkey 
+2026-09-16 23:10:28,040 | INFO | hr_assistant.gateway | Portkey key configured: True
+2026-09-16 23:10:28,040 | INFO | hr_assistant.gateway | Portkey gateway URL: https://api.portkey.ai/v1
+2026-09-16 23:10:28,040 | INFO | hr_assistant.gateway | Portkey config slug: pc-hr-pol-d3a682
+2026-09-16 23:10:28,657 | INFO | hr_assistant.agent | Creating HR agent with 1 tool(s)
+2026-09-16 23:10:28,663 | INFO | hr_assistant.agent | HR agent Ready
+2026-09-16 23:10:28,663 | INFO | hr_assistant.pipeline | HR assistant is ready to take questions
+2026-09-16 23:10:33,873 | INFO | __main__ | === Streamlit run: new question received ===
+2026-09-16 23:10:33,874 | INFO | hr_assistant.pipeline | User question: hi
+2026-09-16 23:10:34,318 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-16 23:10:36,144 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-16 23:10:36,154 | INFO | hr_assistant.pipeline | Final answer: Hello! 👋 How can I help you today at Acme Crop?
+2026-09-16 23:10:37,037 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-16 23:10:56,828 | INFO | __main__ | === Streamlit run: new question received ===
+2026-09-16 23:10:56,830 | INFO | hr_assistant.pipeline | User question: what are the paid leave policy
+2026-09-16 23:10:57,183 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-16 23:10:57,950 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-16 23:10:57,956 | INFO | hr_assistant.tools | search_hr_policy called with query: paid leave policy
+2026-09-16 23:10:58,371 | INFO | httpx | HTTP Request: POST https://api.cohere.com/v1/embed "HTTP/1.1 200 OK"
+2026-09-16 23:10:58,868 | INFO | httpx | HTTP Request: POST https://303a03b6-1d8f-457d-af46-336869acd983.eu-west-2-0.aws.cloud.qdrant.io:6333/collections/HR_policy/points/query "HTTP/1.1 200 OK"
+2026-09-16 23:10:58,870 | INFO | hr_assistant.tools | Found 3 matching chunk(s)
+2026-09-16 23:10:59,977 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-16 23:10:59,981 | INFO | hr_assistant.pipeline | Final answer: Sure thing! Here’s a quick rundown of our paid leave policy:
+
+| Type of Leave | Entitlement | Key Points |
+|---------------|-------------|------------|
+| **Paid Annual Leave** | 20 days per calendar year | • Submit requests via the HR portal at least 5 working days in advance.<br>• Unused days can be carried forward to the next year, but only up to 5 days.<br>• After the first 5 days, any remaining unused days are forfeited. |
+| **Paid Sick Leave** | 10 days per calendar year | • Separate from annual leave.<br>• A medical certificate is required for absences longer than 2 consecutive days. |
+
+**What you need to remember:**
+
+- All full‑time employees qualify for the 20‑day paid annual leave.
+- If you’re on a 3‑month probation period, you *don’t* receive paid leave (you can request unpaid leave with manager approval).
+- Keep track of your leave balance in the HR portal; it updates automatically after each request is approved.
+
+Let me know if you’d like to see how to submit a leave request or anything else about the policy!
+2026-09-16 23:11:00,492 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
