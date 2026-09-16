@@ -1,0 +1,24 @@
+2026-09-16 23:31:41,913 | INFO | hr_assistant.pipeline | Building HR assistant...
+2026-09-16 23:31:41,914 | INFO | hr_assistant.pipeline | Building HR assistant...
+2026-09-16 23:31:42,464 | INFO | httpx | HTTP Request: GET https://303a03b6-1d8f-457d-af46-336869acd983.eu-west-2-0.aws.cloud.qdrant.io:6333 "HTTP/1.1 200 OK"
+2026-09-16 23:31:42,504 | INFO | httpx | HTTP Request: GET https://303a03b6-1d8f-457d-af46-336869acd983.eu-west-2-0.aws.cloud.qdrant.io:6333/collections/HR_policy/exists "HTTP/1.1 200 OK"
+2026-09-16 23:31:42,506 | INFO | hr_assistant.pipeline | Qdrant Cloud collection already exists, reusing it
+2026-09-16 23:31:42,513 | INFO | hr_assistant.embeddings | Initializing embeddings model 'embed-english-light-v3.0'
+2026-09-16 23:31:43,202 | INFO | httpx | HTTP Request: GET https://303a03b6-1d8f-457d-af46-336869acd983.eu-west-2-0.aws.cloud.qdrant.io:6333/collections/HR_policy "HTTP/1.1 200 OK"
+2026-09-16 23:31:43,266 | INFO | httpx | HTTP Request: GET https://303a03b6-1d8f-457d-af46-336869acd983.eu-west-2-0.aws.cloud.qdrant.io:6333 "HTTP/1.1 200 OK"
+2026-09-16 23:31:43,740 | INFO | httpx | HTTP Request: POST https://api.cohere.com/v1/embed "HTTP/1.1 200 OK"
+2026-09-16 23:31:43,744 | INFO | hr_assistant.vector_store | Successfully loaded Qdrant collection: HR_policy
+2026-09-16 23:31:43,744 | INFO | hr_assistant.vector_store | Creating retriever with top_k=3
+2026-09-16 23:31:43,747 | INFO | hr_assistant.llm | Initializing LLM via a portkey 
+2026-09-16 23:31:43,747 | INFO | hr_assistant.gateway | Initializing Portkey gateway
+2026-09-16 23:31:43,747 | INFO | hr_assistant.gateway | Portkey gateway URL: https://api.portkey.ai/v1
+2026-09-16 23:31:43,747 | INFO | hr_assistant.gateway | Portkey config: pc-hr-pol-d3a682
+2026-09-16 23:31:44,500 | INFO | hr_assistant.agent | Creating HR agent with 1 tool(s)
+2026-09-16 23:31:44,506 | INFO | hr_assistant.agent | HR agent Ready
+2026-09-16 23:31:44,507 | INFO | hr_assistant.pipeline | HR assistant is ready to take questions
+2026-09-16 23:31:48,153 | INFO | __main__ | === Streamlit run: new question received ===
+2026-09-16 23:31:48,155 | INFO | hr_assistant.pipeline | User question: hi
+2026-09-16 23:31:48,490 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-16 23:31:49,694 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-16 23:31:49,706 | INFO | hr_assistant.pipeline | Final answer: Hello! 👋 How can I help you today at Acme Crop?
+2026-09-16 23:31:51,172 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
