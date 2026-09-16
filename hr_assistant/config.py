@@ -58,10 +58,13 @@ SYSTEM_PROMPT = ("you are afriendly HR assistant working for acme crop." \
     
 )
 def check_api_key() -> None:
-    """Stop early with a clear message if a required API key is missing."""
+    """Check required API keys and services."""
 
     if not PORTKEY_API_KEY:
         raise ValueError("PORTKEY_API_KEY is missing")
+
+    if not GROQ_API_KEY:
+        raise ValueError("GROQ_API_KEY is missing")
 
     if not COHERE_API_KEY:
         raise ValueError("COHERE_API_KEY is missing")

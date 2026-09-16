@@ -14,20 +14,12 @@ GATEWAY_CONFIG_SLUG = "pc-hr-pol-d3a682"
 def get_gateway_llm() -> ChatOpenAI:
     """Return the LLM routed through Portkey."""
 
-    logger.info(
-        "Portkey key configured: %s",
-        bool(config.PORTKEY_API_KEY),
-    )
+    if not config.PORTKEY_API_KEY:
+        raise ValueError("PORTKEY_API_KEY is missing")
 
-    logger.info(
-        "Portkey gateway URL: %s",
-        PORTKEY_GATEWAY_URL,
-    )
-
-    logger.info(
-        "Portkey config slug: %s",
-        GATEWAY_CONFIG_SLUG,
-    )
+    logger.info("Initializing Portkey gateway")
+    logger.info("Portkey gateway URL: %s", PORTKEY_GATEWAY_URL)
+    logger.info("Portkey config: %s", GATEWAY_CONFIG_SLUG)
 
     headers = createHeaders(
         api_key=config.PORTKEY_API_KEY,
@@ -35,7 +27,7 @@ def get_gateway_llm() -> ChatOpenAI:
     )
 
     return ChatOpenAI(
-        api_key="unused",
+        api_key=config.GROQ_API_KEY,
         base_url=PORTKEY_GATEWAY_URL,
         model=config.LLM_MODEL_NAME,
         default_headers=headers,
