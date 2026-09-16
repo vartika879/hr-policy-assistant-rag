@@ -19,8 +19,6 @@ a second slug if @hrpolicy fails - see docs/05_portkey_gateway.md.
 
 from langchain_openai import ChatOpenAI
 
-
-
 from portkey_ai import createHeaders,PORTKEY_GATEWAY_URL
 
 from hr_assistant import config
@@ -28,44 +26,20 @@ from hr_assistant.logger import get_logger
 
 logger=get_logger(__name__)
 
-
-
-# my main model -application
-PRIMARY_TARGET={"provider":"@hr-policy",
-                "override_params":{"model":config.LLM_MODEL_NAME}}
-
-
-
-# BACKUP MODEL
-FALLBACK_TARGET={"provider":"@hr-policy-back",
-                "override_params":{"model":"gemini-3.8-flash"}}
-
-
-#GATEWAY FEATURES
-#LOADBALANCING
-#MODEL ROUTING
-# CACHING
-# FALLBACK
-
-#CONFIG --set of rules
-
-#PUBLIC - ANYONE CAN EDITS
-#PRIVATE --INTERNS
-
-
 PRIMARY_PROVIDER = "@hr-policy"           # kept for logging/reference only
 GATEWAY_CONFIG_SLUG = "pc-hr-pol-d3a682"  # hr_policy config, v2 — fallback @hr-policy -> @hr-policy-back
 
 
 def get_gateway_llm() -> ChatOpenAI:
-    """Return a chat model routed through Portkey using the saved fallback config."""
+    """Return the LLM routed through Portkey."""
+
     logger.info("Routing LLM calls through Portkey (config=%s)", GATEWAY_CONFIG_SLUG)
     headers = createHeaders(
         api_key=config.PORTKEY_API_KEY,
         config=GATEWAY_CONFIG_SLUG,
     )
     return ChatOpenAI(
-        api_key="portkey",
+        api_key=config.PORTKEY_API_KEY,
         base_url=PORTKEY_GATEWAY_URL,
         model=config.LLM_MODEL_NAME,
         default_headers=headers,
